@@ -1,0 +1,9 @@
+c:\Users\Usuario\Desktop\194398-174133\MatchesOfSports.BusinessLogic\bin\Debug\netstandard2.0\MatchesOfSports.BusinessLogic.deps.json
+c:\Users\Usuario\Desktop\194398-174133\MatchesOfSports.BusinessLogic\bin\Debug\netstandard2.0\MatchesOfSports.BusinessLogic.dll
+c:\Users\Usuario\Desktop\194398-174133\MatchesOfSports.BusinessLogic\bin\Debug\netstandard2.0\MatchesOfSports.BusinessLogic.pdb
+c:\Users\Usuario\Desktop\194398-174133\MatchesOfSports.BusinessLogic\obj\Debug\netstandard2.0\MatchesOfSports.BusinessLogic.csprojAssemblyReference.cache
+c:\Users\Usuario\Desktop\194398-174133\MatchesOfSports.BusinessLogic\obj\Debug\netstandard2.0\MatchesOfSports.BusinessLogic.csproj.CoreCompileInputs.cache
+c:\Users\Usuario\Desktop\194398-174133\MatchesOfSports.BusinessLogic\obj\Debug\netstandard2.0\MatchesOfSports.BusinessLogic.AssemblyInfoInputs.cache
+c:\Users\Usuario\Desktop\194398-174133\MatchesOfSports.BusinessLogic\obj\Debug\netstandard2.0\MatchesOfSports.BusinessLogic.AssemblyInfo.cs
+c:\Users\Usuario\Desktop\194398-174133\MatchesOfSports.BusinessLogic\obj\Debug\netstandard2.0\MatchesOfSports.BusinessLogic.dll
+c:\Users\Usuario\Desktop\194398-174133\MatchesOfSports.BusinessLogic\obj\Debug\netstandard2.0\MatchesOfSports.BusinessLogic.pdb

@@ -1,0 +1,9 @@
+c:\Users\Usuario\Desktop\194398-174133\MatchesOfSports.Domain\bin\Debug\netstandard2.0\MatchesOfSports.Domain.deps.json
+c:\Users\Usuario\Desktop\194398-174133\MatchesOfSports.Domain\bin\Debug\netstandard2.0\MatchesOfSports.Domain.dll
+c:\Users\Usuario\Desktop\194398-174133\MatchesOfSports.Domain\bin\Debug\netstandard2.0\MatchesOfSports.Domain.pdb
+c:\Users\Usuario\Desktop\194398-174133\MatchesOfSports.Domain\obj\Debug\netstandard2.0\MatchesOfSports.Domain.csprojAssemblyReference.cache
+c:\Users\Usuario\Desktop\194398-174133\MatchesOfSports.Domain\obj\Debug\netstandard2.0\MatchesOfSports.Domain.csproj.CoreCompileInputs.cache
+c:\Users\Usuario\Desktop\194398-174133\MatchesOfSports.Domain\obj\Debug\netstandard2.0\MatchesOfSports.Domain.AssemblyInfoInputs.cache
+c:\Users\Usuario\Desktop\194398-174133\MatchesOfSports.Domain\obj\Debug\netstandard2.0\MatchesOfSports.Domain.AssemblyInfo.cs
+c:\Users\Usuario\Desktop\194398-174133\MatchesOfSports.Domain\obj\Debug\netstandard2.0\MatchesOfSports.Domain.dll
+c:\Users\Usuario\Desktop\194398-174133\MatchesOfSports.Domain\obj\Debug\netstandard2.0\MatchesOfSports.Domain.pdb

@@ -1,0 +1,9 @@
+c:\Users\Usuario\Desktop\194398-174133\MatchesOfSports.DataAccess\bin\Debug\netstandard2.0\MatchesOfSports.DataAccess.deps.json
+c:\Users\Usuario\Desktop\194398-174133\MatchesOfSports.DataAccess\bin\Debug\netstandard2.0\MatchesOfSports.DataAccess.dll
+c:\Users\Usuario\Desktop\194398-174133\MatchesOfSports.DataAccess\bin\Debug\netstandard2.0\MatchesOfSports.DataAccess.pdb
+c:\Users\Usuario\Desktop\194398-174133\MatchesOfSports.DataAccess\obj\Debug\netstandard2.0\MatchesOfSports.DataAccess.csprojAssemblyReference.cache
+c:\Users\Usuario\Desktop\194398-174133\MatchesOfSports.DataAccess\obj\Debug\netstandard2.0\MatchesOfSports.DataAccess.csproj.CoreCompileInputs.cache
+c:\Users\Usuario\Desktop\194398-174133\MatchesOfSports.DataAccess\obj\Debug\netstandard2.0\MatchesOfSports.DataAccess.AssemblyInfoInputs.cache
+c:\Users\Usuario\Desktop\194398-174133\MatchesOfSports.DataAccess\obj\Debug\netstandard2.0\MatchesOfSports.DataAccess.AssemblyInfo.cs
+c:\Users\Usuario\Desktop\194398-174133\MatchesOfSports.DataAccess\obj\Debug\netstandard2.0\MatchesOfSports.DataAccess.dll
+c:\Users\Usuario\Desktop\194398-174133\MatchesOfSports.DataAccess\obj\Debug\netstandard2.0\MatchesOfSports.DataAccess.pdb
