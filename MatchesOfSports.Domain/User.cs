@@ -17,6 +17,8 @@ namespace MatchesOfSports.Domain
         private string Password{get;set;}
         private string Email{get;set;}
         private Role   userRole {get;set;}
+        private List<Comment> ListOfComments {get;set;}
+        private List<Team>    ListOfFavouriteTeams {get;set;}
     
   
         public User(){
