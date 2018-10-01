@@ -1,22 +1,13 @@
-using System.Data.Entity;
-using MatchesOfSports.Domain;
-
-namespace VehicleTracking.DataAccess
+namespace MatchesOfSports.DataAccess
 {
-    public class MatchesOfSportsContext: DbContext 
+    public class MatchesOfSportsContext : DbContext
     {
-        public MatchesOfSportsContext(): base("name=MatchesOfSportsDB")
-        {
-        }
+        public DbSet<User> Users {get; set;}
+        public DbSet<Match> Matches {get; set;}
+        public DbSet<Sport> Sports  {get;set;}
+        public DbSet<Team>  Sports  {get;set;}
+        public DbSet<Comment> Comments {get;set}
 
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            base.OnModelCreating(modelBuilder);
-            modelBuilder.Entity<Vehicle>().HasKey(v => v.Vin);
-            modelBuilder.Entity<Zone>().HasKey(z => z.Id);
-            modelBuilder.Entity<ZoneMovement>().HasKey(zm => zm.Id);
-            modelBuilder.Entity<Lot>().HasKey(l => l.Id);
-            modelBuilder.Entity<LotTransport>().HasKey(lt => lt.Id);
-        }
+        public HomeworksContext(DbContextOptions options) : base(options) { }
     }
 }
