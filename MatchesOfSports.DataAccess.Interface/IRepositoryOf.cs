@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace MatchesOfSports.DataAccess.Interface
 {
-    public interface IRepository<T> : IDisposable where T : class
+    public interface IRepositoryOf<T> : IDisposable where T : class
     {
         void Add(T entity);
 
