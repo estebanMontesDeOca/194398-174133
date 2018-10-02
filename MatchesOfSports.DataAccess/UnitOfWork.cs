@@ -50,6 +50,6 @@ public class UnitOfWork : IUnitOfWork
 
     public void Save()
     {
-        _bloggingContext.SaveChanges();
+        context.SaveChanges();
     }
 }
