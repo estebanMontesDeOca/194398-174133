@@ -3,19 +3,15 @@ using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using MatchesOfSports.DataAccess.Interface;
 
-namespace Homeworks.DataAccess
+namespace MatchesOfSports.DataAccess
 {
-    public abstract class BaseRepository<T> : IRepository<T> where T : class
+    public abstract class BaseRepository<T> : IRepositorOfy<T> where T : class
     {
         protected DbContext Context {get; set;}
-
+        
+        public 
         public void Add(T entity) 
         {
-            /*try {
-                TryAdd(entity);
-            } catch (ExceptionEntetyFramework e) {
-                throw new BaseRepositoryException(e);
-            } */
             Context.Set<T>().Add(entity);
         }
 
