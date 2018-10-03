@@ -18,6 +18,7 @@
     <ProjectReference Include="..\MatchesOfSports.Domain\MatchesOfSports.Domain.csproj" />
     <ProjectReference Include="..\MatchesOfSports.DataAccess\MatchesOfSports.DataAccess.csproj" />
     <ProjectReference Include="..\MatchesOfSports.BusinessLogic\MatchesOfSports.BusinessLogic.csproj" />
+    <ProjectReference Include="..\MatchesOfSports.DataAccess.Interface\MatchesOfSports.DataAccess.Interface.csproj" />
   </ItemGroup>
 
 </Project>
