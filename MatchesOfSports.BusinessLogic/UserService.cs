@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using MatchesOfSports.Domain;
 using MatchesOfSports.DataAccess;
 
-namespace MatchesOfSports.BusinessLogic.Services
+namespace MatchesOfSports.BusinessLogic
 {
     public class UserService : IUsersService
     {

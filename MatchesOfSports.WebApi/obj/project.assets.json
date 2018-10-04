@@ -4362,6 +4362,7 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "MatchesOfSports.DataAccess": "1.0.0",
           "MatchesOfSports.Domain": "1.0.0"
         },
         "compile": {

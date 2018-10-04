@@ -1,15 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore; 
 using MatchesOfSports.DataAccess.Interface;
-
 namespace MatchesOfSports.DataAccess
 {
-    public abstract class BaseRepository<T> : IRepositorOfy<T> where T : class
+    public abstract class BaseRepository<T> : IRepositoryOf<T> where T : class
     {
         protected DbContext Context {get; set;}
         
-        public 
         public void Add(T entity) 
         {
             Context.Set<T>().Add(entity);

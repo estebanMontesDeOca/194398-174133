@@ -9,4 +9,9 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="2.1.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MatchesOfSports.DataAccess.Interface\MatchesOfSports.DataAccess.Interface.csproj" />
+    <ProjectReference Include="..\MatchesOfSports.Domain\MatchesOfSports.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
