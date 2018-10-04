@@ -25,6 +25,16 @@
         "build": {
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
+      },
+      "MatchesOfSports.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "compile": {
+          "bin/placeholder/MatchesOfSports.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MatchesOfSports.Domain.dll": {}
+        }
       }
     }
   },
@@ -168,10 +178,16 @@
         "netstandard.library.2.0.3.nupkg.sha512",
         "netstandard.library.nuspec"
       ]
+    },
+    "MatchesOfSports.Domain/1.0.0": {
+      "type": "project",
+      "path": "../MatchesOfSports.Domain/MatchesOfSports.Domain.csproj",
+      "msbuildProject": "../MatchesOfSports.Domain/MatchesOfSports.Domain.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.0": [
+      "MatchesOfSports.Domain >= 1.0.0",
       "NETStandard.Library >= 2.0.3"
     ]
   },
@@ -202,7 +218,11 @@
       },
       "frameworks": {
         "netstandard2.0": {
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\Usuario\\Desktop\\194398-174133\\MatchesOfSports.Domain\\MatchesOfSports.Domain.csproj": {
+              "projectPath": "C:\\Users\\Usuario\\Desktop\\194398-174133\\MatchesOfSports.Domain\\MatchesOfSports.Domain.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

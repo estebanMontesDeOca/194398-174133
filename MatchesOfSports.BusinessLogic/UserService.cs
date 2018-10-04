@@ -21,7 +21,7 @@ namespace MatchesOfSports.BusinessLogic.Services
             this.unitOfWork = unitOfWork;
         }
 
-        public int CreateUser(User newUser)
+        public bool CreateUser(User newUser)
         {
             if (!newUser.IsValid())
             {
@@ -34,10 +34,10 @@ namespace MatchesOfSports.BusinessLogic.Services
 
             unitOfWork.UserRepository.Insert(newUser);
             unitOfWork.Save();
-            return newUser.Id;
+            return true;
         }
 
-        public bool UpdateUser(int userId, User updatedUser)
+        public bool UpdateUser(string userName, User updatedUser)
         {
             if (updatedUser == null)
             {
@@ -49,19 +49,21 @@ namespace MatchesOfSports.BusinessLogic.Services
                 throw new InvalidOperationException(ExceptionMessages.InvalidUserData);
             }
             
-            User userEntity = unitOfWork.UserRepository.GetById(userId);
+            User userEntity = unitOfWork.UserRepository.GetUserByUserName(userName);
 
             if( userEntity == null)
             {
                 throw new InvalidOperationException(ExceptionMessages.InvalidUserData);
             }
 
-            userEntity.Name = updatedUser.Name;
-            userEntity.Password = updatedUser.Password;
-            userEntity.Phone = updatedUser.Phone;
-            userEntity.Role = updatedUser.Role;
-            userEntity.Surname = updatedUser.Surname;
-            userEntity.Username = updatedUser.Username;
+                user.Name = updatedUser.Name;
+                user.SureName = updatedUser.SureName;
+                user.UserName = updatedUser.UserName;
+                user.Passrword = updatedUser.Password;
+                user.Email     = updatedUser.Email;
+                user.WasDeleted = updatedUser.WasDeleted;
+                user.UserRole = updatedUser.UserRole;
+                UpdateUser(userName,updatedUser);
 
             unitOfWork.UserRepository.Update(userEntity);
             unitOfWork.Save();
@@ -70,36 +72,30 @@ namespace MatchesOfSports.BusinessLogic.Services
 
         private bool ExistsUser(User user)
         {
-            return unitOfWork.UserRepository.Get(u => u.Username == user.Username).Count() > 0;
+            return unitOfWork.UserRepository.Get(u => u.UserName == user.UserName).Count() > 0;
         }
 
-        public bool DeleteUserById(int userId)
+        public void DeleteUser(string userName)
+        {
+            unitOfWork.UserRepository.Delete(userName);
+            unitOfWork.Save();
+        }
+
+        public bool DeleteUserByUserName(string userName)
         {
             try
             {
-                //Obtengo los administradores restantes que quedarían si borro este user (sólo si el user a borrar es admin).
-                User user = GetUserById(userId);
-                if(user != null && user.Role == Role.Administrator)
-                {
-                    IEnumerable<User> users = unitOfWork.UserRepository.Get(u => u.Role.ToString().Equals(Role.Administrator.ToString()) && u.Id != userId);
-                    if (users.Count() == 0)
-                    {
-                        throw new InvalidOperationException(ExceptionMessages.LastDeletedAdmin);
-                    }
-                    else
-                    {
-                        unitOfWork.UserRepository.Delete(userId);
-                        unitOfWork.Save();
-                        return true;
-                    }
-                }
-                else
-                {
-                    unitOfWork.UserRepository.Delete(userId);
-                    unitOfWork.Save();
-                    return true;
-                }
-                  
+                User user = GetUserByUserName(userName);
+                User updatedUser = new User();
+                user.Name        = updatedUser.Name;
+                user.SureName    = updatedUser.SureName;
+                user.UserName    = updatedUser.UserName;
+                user.Passrword   = updatedUser.Password;
+                user.Email       = updatedUser.Email;
+                updatedUser.WasDeleted = true;
+                user.UserRole = updatedUser.UserRole;
+                UpdateUser(userName,updatedUser);
+                return true;
             }
             catch (ArgumentNullException)
             {
@@ -107,19 +103,10 @@ namespace MatchesOfSports.BusinessLogic.Services
             }
         }
 
-        public IEnumerable<User> GetAllUsers()
-        {
-            return unitOfWork.UserRepository.Get(null, null, "");
-        }
 
-        public User GetUserById(int id)
+        public User GetUserByUserName(string userNam)
         {
-            return unitOfWork.UserRepository.GetById(id);
-        }
-
-        public User FindAdminUser(string userName, string password)
-        {
-            return unitOfWork.UserRepository.GetFirst(u => u.Username.Equals(userName) && u.Password.Equals(password) && u.Role == Role.Administrator, null, "");
+            return unitOfWork.UserRepository.Get(UserName);
         }
     }
 }

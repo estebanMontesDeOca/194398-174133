@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Homeworks.Domain;
+using MatchesOfSports.Domain;
 using Microsoft.EntityFrameworkCore;
 
 namespace MatchesOfSports.DataAccess
@@ -13,14 +13,16 @@ namespace MatchesOfSports.DataAccess
             Context = context;
         }
 
-        public override User Get(Guid id)
+        public override User Get(string userName)
         {
-            return Context.Set<User>().First(x => x.Id == id);
+            return Context.Set<User>().First(x => String.Compare(x.UserName,userName));
         }
 
         public override IEnumerable<User> GetAll()
         {
             return Context.Set<User>().ToList();
         }
+        
+       
     }
 }

@@ -17,7 +17,8 @@ namespace MatchesOfSports.Domain
         private string UserName{get;set;}
         private string Password{get;set;}
         private string Email{get;set;}
-        private Role   userRole {get;set;}
+        private bool   WasDeleted{get;set;}
+        private Role   UserRole {get;set;}
         private List<Comment> ListOfComments {get;set;}
         private List<Team>    ListOfFavouriteTeams {get;set;}
     
@@ -28,7 +29,10 @@ namespace MatchesOfSports.Domain
             UserName =  "noUserName";
             Password = "noPassword";
             Email =  "noEmail";
-            userRole = Role.noRole;
+            WasDeleted =false;
+            ListOfComments= new List<Comment>();
+            ListOfFavouriteTeams= new List<Team>();
+            UserRole = Role.noRole;
         }
 
 
@@ -105,5 +109,12 @@ namespace MatchesOfSports.Domain
             return Role.IsDefined(typeof(Role), role);
         }
  
+
+    public bool isItDeleted()
+    {
+        return WasDeleted;
     }
+    }
+
+    
 }

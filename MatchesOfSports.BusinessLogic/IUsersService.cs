@@ -6,10 +6,9 @@ namespace MatchesOfSports.BusinessLogic.Services
     public interface IUsersService
     {
         IEnumerable<User> GetAllUsers();
-        User GetUserByUserName(int id);
-        bool DeleteUserByUserName(int userId);
-        int CreateUser(User newUser);
+        User GetUserByUserName(string userName);
+        bool DeleteUserByUserName(string userName);
+        bool CreateUser(User newUser);
         bool UpdateUser(string userName, User updatedUser);
-        User FindAdminUser(string userName, string password);
     }
 }

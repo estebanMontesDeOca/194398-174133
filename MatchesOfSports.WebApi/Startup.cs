@@ -24,11 +24,19 @@ namespace MatchesOfSports.WebApi
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
-        {
-            var connection = @"Server=(localdb)\mssqllocaldb;Database=EFGetStarted.AspNetCore.NewDb;Trusted_Connection=True;";
-            services.AddDbContext<BloggingContext>(options => options.UseSqlServer(connection));
-            services.AddSingleton<IUnitOfWork, UnitOfWork>();
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+        { 
+            services.AddMvc();
+        
+            services.AddDbContext<DbContext, HomeworksContext>(o => o.UseSqlServer(Configuration.GetConnectionString("MatchesOfSportsDB")));
+            services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IRepositoryOf<User>, UserRepository>();
+            //services.AddScoped<, HomeworkLogic>();
+            services.AddScoped<IRepositoryOf<Team>, TeamRepository>();
+            //services.AddScoped<IExerciseLogic, ExerciseLogic>();
+            services.AddScoped<IRepositoryOf<Sport>, SportRepository>();
+            //services.AddScoped<ISessionLogic, SessionLogic>();
+            services.AddScoped<IRepositoryOf<Match>, MatchRepository>();
+            services.AddScoped<IRepositoryOf<Comment>, CommentRepository>(); 
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
