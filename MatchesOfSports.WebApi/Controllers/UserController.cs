@@ -1,38 +1,30 @@
 using System;
 using Microsoft.AspNetCore.Mvc;
 using MatchesOfSports.Domain;
-using MatchesOfSports.BusinessLogic.Interface;
+using MatchesOfSports.BusinessLogic;
+using MatchesOfSports.BusinessLogic.Services;
 
 namespace MatchesOfSports.WebApi.Controllers
 {
     [Route("api/users")]
-    [EnableCors(origins: "*",headers: "*", methods: "*")]
+    //[EnableCors(origins: "*",headers: "*", methods: "*")]
     public class UsersController : Controller
     {
-        private IUserService users;
+        private IUsersService usersService;
 
-        public UsersController(IUserLogic users) : base()
+        public UsersController(IUsersService usersService) : this()
         {
-            this.users = new UserService(new UnitOfWork(new MatchesOfSportsContext()));
+            this.usersService =usersService;
         }
 
-        public UsersController(IUsersService service)
-        {
-            if(service == null)
-            {
-                throw new ArgumentNullException();
-            }
-            users = service;
-        }
-
-        [AuthorizeRoles(Role.Administrator)]
+        [AuthorizeRoles(Role.Admin)]
         [HttpGet]
         public IActionResult Get()
         {
             return Ok(users.GetAllUsers());
         }
 
-        [AuthorizeRoles(Role.Administrator)]
+        [AuthorizeRoles(Role.Admin)]
         [HttpGet]
         [Route("{id}")]
         public IHttpActionResult GetUserById(int id)
