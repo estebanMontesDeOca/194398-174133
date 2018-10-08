@@ -26,11 +26,11 @@ namespace MatchesOfSports.BusinessLogic.Services
         {
             if (!newUser.IsValid())
             {
-                throw new InvalidOperationException(ExceptionMessages.InvalidUserData);
+                throw new InvalidOperationException("Could not create user - Invalid data");
             }
             if (ExistsUser(newUser))
             {
-                throw new InvalidOperationException(ExceptionMessages.ExistingUserError);
+                throw new InvalidOperationException("Could not create user - The user already exist");
             }
 
             unitOfWork.UserRepository.Add(newUser);
@@ -47,14 +47,14 @@ namespace MatchesOfSports.BusinessLogic.Services
 
             if (!updatedUser.IsValid())
             {
-                throw new InvalidOperationException(ExceptionMessages.InvalidUserData);
+                throw new InvalidOperationException("Could not update user - Invalid data");
             }
             
             User userEntity = unitOfWork.UserRepository.Get(id);
 
             if( userEntity == null)
             {
-                throw new InvalidOperationException(ExceptionMessages.InvalidUserData);
+                throw new InvalidOperationException("Could not update user - Invalid data");
             }
                 userEntity.UserId= updatedUser.UserId;
                 userEntity.Name = updatedUser.Name;

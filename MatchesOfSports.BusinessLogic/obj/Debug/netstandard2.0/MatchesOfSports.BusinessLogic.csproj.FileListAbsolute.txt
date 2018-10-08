@@ -7,3 +7,8 @@ c:\Users\Usuario\Desktop\194398-174133\MatchesOfSports.BusinessLogic\obj\Debug\n
 c:\Users\Usuario\Desktop\194398-174133\MatchesOfSports.BusinessLogic\obj\Debug\netstandard2.0\MatchesOfSports.BusinessLogic.AssemblyInfo.cs
 c:\Users\Usuario\Desktop\194398-174133\MatchesOfSports.BusinessLogic\obj\Debug\netstandard2.0\MatchesOfSports.BusinessLogic.dll
 c:\Users\Usuario\Desktop\194398-174133\MatchesOfSports.BusinessLogic\obj\Debug\netstandard2.0\MatchesOfSports.BusinessLogic.pdb
+C:\Users\Usuario\Desktop\194398-174133\MatchesOfSports.BusinessLogic\bin\Debug\netstandard2.0\MatchesOfSports.DataAccess.Interface.dll
+C:\Users\Usuario\Desktop\194398-174133\MatchesOfSports.BusinessLogic\bin\Debug\netstandard2.0\MatchesOfSports.Domain.dll
+C:\Users\Usuario\Desktop\194398-174133\MatchesOfSports.BusinessLogic\bin\Debug\netstandard2.0\MatchesOfSports.DataAccess.Interface.pdb
+C:\Users\Usuario\Desktop\194398-174133\MatchesOfSports.BusinessLogic\bin\Debug\netstandard2.0\MatchesOfSports.Domain.pdb
+C:\Users\Usuario\Desktop\194398-174133\MatchesOfSports.BusinessLogic\obj\Debug\netstandard2.0\MatchesOfSports.BusinessLogic.csproj.CopyComplete
