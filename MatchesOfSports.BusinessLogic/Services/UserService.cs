@@ -72,17 +72,17 @@ namespace MatchesOfSports.BusinessLogic.Services
 
         private bool ExistsUser(User user)
         {
-            return unitOfWork.UserRepository.Get(u => u.UserId == user.UserId).Count() > 0;
+            return unitOfWork.UserRepository.Get(user.UserId)!=null;
         }
         public bool DeleteUserByUserName(Guid id)
         {
             try
             {
-                User user = GetUserByUserName(id);
+                User user = GetUserByUserId(id);
                 User updatedUser = new User();
                 user.UserId      = updatedUser.UserId;
                 user.Name        = updatedUser.Name;
-                user.Surename    = updatedUser.Surename;
+                user.Surname    = updatedUser.Surname;
                 user.UserName    = updatedUser.UserName;
                 user.Password   = updatedUser.Password;
                 user.Email       = updatedUser.Email;
