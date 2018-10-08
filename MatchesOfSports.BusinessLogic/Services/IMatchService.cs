@@ -7,8 +7,8 @@ namespace MatchesOfSports.BusinessLogic.Services
     public interface IMatchService
     {
         IEnumerable<Match> GetAllTheMatches();
-        Matche GetMatchById(Guid id);
-        bool DeleteMatch(DateTime date, string firstTeam,string secondTeam);
+        Match GetMatchById(Guid id);
+        bool DeleteMatch(Guid Id);
         bool CreateMathc(Match newMatch);
         bool UpdateMatch(string userName, User updatedUser);
     }

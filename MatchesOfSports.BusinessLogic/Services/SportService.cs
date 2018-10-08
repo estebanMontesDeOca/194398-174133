@@ -30,7 +30,7 @@ namespace MatchesOfSports.BusinessLogic.Services
                
         }
 
-        public Sport GetSportBySportName(Guid id)
+        public Sport GetSportById(Guid id)
         {
             return unitOfWork.SportRepository.Get(id);
         }

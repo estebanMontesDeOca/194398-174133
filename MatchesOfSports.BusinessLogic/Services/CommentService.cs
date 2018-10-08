@@ -1,8 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Guid;
+using System.Text; 
 using System.Threading.Tasks;
 using MatchesOfSports.DataAccess.Interface;
 using MatchesOfSports.Domain; 
@@ -30,10 +29,9 @@ namespace MatchesOfSports.BusinessLogic.Services
             unitOfWork.Save();
             return true;
         }
-
-        public Comment GetCommentByText(string theComment)
+        public Comment GetCommentById(Guid id)
         {
-            return unitOfWork.CommentRepository.Get(theComment);
+            return unitOfWork.CommentRepository.Get(id);
         }
 
          public bool CommentOfDeletedUser(Comment theComment)

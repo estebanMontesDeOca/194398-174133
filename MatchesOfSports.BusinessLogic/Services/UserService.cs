@@ -99,7 +99,7 @@ namespace MatchesOfSports.BusinessLogic.Services
         }
 
 
-        public User GetUserByUserName(Guid id)
+        public User GetUserByUserId(Guid id) 
         {
             return unitOfWork.UserRepository.Get(id);
         }
