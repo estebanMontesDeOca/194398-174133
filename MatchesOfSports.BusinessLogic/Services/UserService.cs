@@ -33,7 +33,7 @@ namespace MatchesOfSports.BusinessLogic.Services
                 throw new InvalidOperationException(ExceptionMessages.ExistingUserError);
             }
 
-            unitOfWork.UserRepository.Insert(newUser);
+            unitOfWork.UserRepository.Add(newUser);
             unitOfWork.Save();
             return true;
         }
@@ -50,7 +50,7 @@ namespace MatchesOfSports.BusinessLogic.Services
                 throw new InvalidOperationException(ExceptionMessages.InvalidUserData);
             }
             
-            User userEntity = unitOfWork.UserRepository.GetUserById(id);
+            User userEntity = unitOfWork.UserRepository.Get(id);
 
             if( userEntity == null)
             {
@@ -58,9 +58,9 @@ namespace MatchesOfSports.BusinessLogic.Services
             }
                 userEntity.UserId= updatedUser.UserId;
                 userEntity.Name = updatedUser.Name;
-                userEntity.SureName = updatedUser.SureName;
+                userEntity.Surname = updatedUser.Surname;
                 userEntity.UserName = updatedUser.UserName;
-                userEntity.Passrword = updatedUser.Password;
+                userEntity.Password = updatedUser.Password;
                 userEntity.Email     = updatedUser.Email;
                 userEntity.WasDeleted = updatedUser.WasDeleted;
                 userEntity.UserRole = updatedUser.UserRole;
@@ -82,9 +82,9 @@ namespace MatchesOfSports.BusinessLogic.Services
                 User updatedUser = new User();
                 user.UserId      = updatedUser.UserId;
                 user.Name        = updatedUser.Name;
-                user.SureName    = updatedUser.SureName;
+                user.Surename    = updatedUser.Surename;
                 user.UserName    = updatedUser.UserName;
-                user.Passrword   = updatedUser.Password;
+                user.Password   = updatedUser.Password;
                 user.Email       = updatedUser.Email;
                 updatedUser.WasDeleted = true;
                 user.UserRole = updatedUser.UserRole;

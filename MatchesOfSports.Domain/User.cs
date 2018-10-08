@@ -53,7 +53,7 @@ namespace MatchesOfSports.Domain
             return true;
         }
 
-         bool invalid = false;
+         //bool invalid = false;
 
    private bool IsNullOrEmpty(string value)
     {
