@@ -5,7 +5,7 @@ using System.Text.RegularExpressions;
 
 namespace MatchesOfSports.Domain
 {
-    enum Role
+    public enum Role
     {
         Admin,
         Folower,
@@ -13,15 +13,16 @@ namespace MatchesOfSports.Domain
     }
     public class User
     {
-        private string Name {get; set;}  
-        private string Surname{get;set;}
-        private string UserName{get;set;}
-        private string Password{get;set;}
-        private string Email{get;set;}
-        private bool   WasDeleted{get;set;}
-        private Role   UserRole {get;set;}
-        private List<Comment> ListOfComments {get;set;}
-        private List<Team>    ListOfFavouriteTeams {get;set;}
+        public Guid   UserId {get;set;}
+        public string Name {get; set;}  
+        public string Surname{get;set;}
+        public string UserName{get;set;}
+        public string Password{get;set;}
+        public string Email{get;set;}
+        public bool   WasDeleted{get;set;}
+        public Role UserRole {get;set;}
+        public List<Comment> ListOfComments {get;set;}
+        public List<Team>    ListOfFavouriteTeams {get;set;}
     
   
         public User(){
@@ -54,9 +55,14 @@ namespace MatchesOfSports.Domain
 
          bool invalid = false;
 
+   private bool IsNullOrEmpty(string value)
+    {
+        return string.IsNullOrWhiteSpace(value);
+    }
    public bool IsValidEmail(string strIn)
    {
-       invalid = false;
+       return true;
+      /* invalid = false;
        if (String.IsNullOrEmpty(strIn))
           return false;
 
@@ -82,9 +88,10 @@ namespace MatchesOfSports.Domain
        catch (RegexMatchTimeoutException) {
           return false;
        }
+       */
    }
 
-   private string DomainMapper(Match match)
+   /*private string DomainMapper(Match match)
    {
       // IdnMapping class with default property values.
       IdnMapping idn = new IdnMapping(); 
@@ -103,12 +110,12 @@ namespace MatchesOfSports.Domain
         }
 
         private bool IsNumerical(string value) => Regex.IsMatch(value, @"^\d+$");
-
+ 
+*/
         private bool ValidRole(object role)
         {
             return Role.IsDefined(typeof(Role), role);
         }
- 
 
     public bool isItDeleted()
     {

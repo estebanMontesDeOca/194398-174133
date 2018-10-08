@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MatchesOfSports.Domain;
-using MatchesOfSports.DataAccess;
+using MatchesOfSports.DataAccess.Interface;
+using MatchesOfSports.BusinessLogic.Services;
 
-namespace MatchesOfSports.BusinessLogic
+namespace MatchesOfSports.BusinessLogic.Services
 {
     public class TeamService : ITeamService
     {
@@ -21,35 +22,35 @@ namespace MatchesOfSports.BusinessLogic
             this.unitOfWork = unitOfWork;
         }
 
-        IEnumerable<Team> GetAllTeams()
+        public IEnumerable<Team> GetAllTeams()
         {
             return unitOfWorks.TeamRepository.GetAll();
         }
         
-        Team GetTeamByName(string teamName)
+        public Team GetTeamByName(string teamName)
         {
             return unitOfWork.TeamRepository.Get(teamName);
         }
 
 
-        IEnumerable<Team> GetTeamsBySport(string sportName)
+        public IEnumerable<Team> GetTeamsBySport(string sportName)
         {
-
+            return new IEnumerable<Team>();
         }
 
-        bool DeleteTeamByName (string teamName)
+        public bool DeleteTeamByName (string teamName)
         {
-            
+            return false;
         }
-        bool Create(Team newTeam)
+        public bool Create(Team newTeam)
         {
-
+            unitOfWork.TeamRepository.Insert(newTeam);
+            unitOfWork.Save();
+            return true;
         }
-        bool UpdateTeam(string steamName, Team updatedTeam)
+        public bool UpdateTeam(string teamName, Team updatedTeam)
         {
-
-
-            
+           return false;
         }
         
     }

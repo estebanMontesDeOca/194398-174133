@@ -13,9 +13,9 @@ namespace MatchesOfSports.DataAccess
             Context = context;
         }
 
-        public override User Get(string userName)
+        public override User Get(Guid userId)
         {
-            return Context.Set<User>().First(x => String.Compare(x.UserName,userName));
+            return Context.Set<User>().First(x => x.UserId == userId);
         }
 
         public override IEnumerable<User> GetAll()

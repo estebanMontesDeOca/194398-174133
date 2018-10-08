@@ -4,18 +4,19 @@ namespace MatchesOfSports.Domain
 {
     public class Team
     {
-        private string name{get; set;}
-        private string photoUrl{get;set;}
+        public Guid   TeamId {get;set;}
+        public  string Name{get; set;}
+        public string PhotoUrl{get;set;}
 
         
         public Team(){
-            name="noName";
-            photoUrl="noPhoto";
+            Name="noName";
+            PhotoUrl="noPhoto";
         }
         public Team(string aName, string aUrl)
         {
-            name = aName;
-            photoUrl = aUrl;
+            Name = aName;
+            PhotoUrl = aUrl;
         }
     }
 }

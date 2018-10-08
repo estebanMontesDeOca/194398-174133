@@ -5,9 +5,10 @@ namespace MatchesOfSports.Domain
 {
     public class Sport
     {
-        private string Name{get; set;}
-        private List<Team> ListOfTeams { get; set; }
-        private List<Match> ListOfMatches { get; set; }
+        public Guid SportId{get;set;}
+        public string Name{get; set;}  
+        public List<Team> ListOfTeams{get;set;}
+        public List<Match> ListOfMatches { get; set; }
 
         
         public Sport(){

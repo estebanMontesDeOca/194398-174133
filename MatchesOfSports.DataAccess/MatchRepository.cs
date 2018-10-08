@@ -15,12 +15,17 @@ namespace MatchesOfSports.DataAccess
 
         public override Match Get(Guid id)
         {
-            return Context.Set<Match>().First(x => x.Id == id);
+            return Context.Set<Match>().First(x => x.MatchId == id);
         }
 
-        public override IEnumerable<User> GetAll()
+        public override IEnumerable<Match> GetAll()
         {
             return Context.Set<Match>().ToList();
+        }
+
+        public override void Remove(Match entity) 
+        {
+            Context.Set<Match>().Remove(entity);
         }
     }
 }

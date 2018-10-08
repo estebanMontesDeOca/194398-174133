@@ -2,11 +2,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Guid;
 using System.Threading.Tasks;
-using MatchesOfSports.Domain;
-using MatchesOfSports.DataAccess;
+using MatchesOfSports.DataAccess.Interface;
+using MatchesOfSports.Domain; 
+using MatchesOfSports.BusinessLogic.Services;
 
-namespace MatchesOfSports.BusinessLogic
+namespace MatchesOfSports.BusinessLogic.Services
 {
     public class CommentService : ICommentService
     {
@@ -24,19 +26,24 @@ namespace MatchesOfSports.BusinessLogic
         public bool CreateComment(Comment newComment)
         {
             //COMPROBAR QUE NO SEA NULL
-            unitOfWork.CommentRepository.Insert(newComment);
+            unitOfWork.CommentRepository.Add(newComment);
             unitOfWork.Save();
             return true;
         }
 
-        Comment GetCommentByText(string theComment)
+        public Comment GetCommentByText(string theComment)
         {
             return unitOfWork.CommentRepository.Get(theComment);
         }
 
-         bool CommentOfDeletedUser(Comment theComment)
+         public bool CommentOfDeletedUser(Comment theComment)
          {
              return theComment.UserWhoComment.WasDeleted;
+         }
+
+         public IEnumerable<Comment> GetAllComments()
+         {
+             return unitOfWork.CommentRepository.GetAll();
          }
 
 

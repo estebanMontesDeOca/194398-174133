@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MatchesOfSports.Domain;
-using MatchesOfSports.DataAccess;
+using MatchesOfSports.DataAccess.Interface;
+using MatchesOfSports.BusinessLogic.Services;
 
-namespace MatchesOfSports.BusinessLogic
+namespace MatchesOfSports.BusinessLogic.Services
 {
     public class UserService : IUsersService
     {
@@ -74,13 +75,6 @@ namespace MatchesOfSports.BusinessLogic
         {
             return unitOfWork.UserRepository.Get(u => u.UserName == user.UserName).Count() > 0;
         }
-
-        public void DeleteUser(String userName)
-        {
-            unitOfWork.UserRepository.Delete(userName);
-            unitOfWork.Save();
-        }
-
         public bool DeleteUserByUserName(String userName)
         {
             try
@@ -108,5 +102,10 @@ namespace MatchesOfSports.BusinessLogic
         {
             return unitOfWork.UserRepository.Get(UserName);
         }
+
+         public IEnumerable<User> GetAllUsers()
+         {
+             return unitOfWork.UserRepository.GetAll();
+         }
     }
 }

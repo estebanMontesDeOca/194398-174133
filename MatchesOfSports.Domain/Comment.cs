@@ -1,12 +1,11 @@
 using System;
-using System.Collections.Generic;
-
 namespace MatchesOfSports.Domain
 {
     public class Comment
     {
-        private string TheComment {get; set;}  
-        private User   UserWhoComment {get;set;}
+        public Guid Commet {get;set;}
+        public string TheComment {get; set;}  
+        public User   UserWhoComment {get;set;}
 
         
         public Comment(){

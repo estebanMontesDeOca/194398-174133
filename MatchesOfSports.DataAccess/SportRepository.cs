@@ -13,9 +13,9 @@ namespace MatchesOfSports.DataAccess
             Context = context;
         }
 
-        public override Sport Get(string sportName)
+        public override Sport Get(Guid id)
         {
-            return Context.Set<Sport>().First(x => x.SportName.Equal(sportName));
+            return Context.Set<Sport>().First(x => x.SportId == id);
         }
 
         public override IEnumerable<Sport> GetAll()

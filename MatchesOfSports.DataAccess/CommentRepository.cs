@@ -13,9 +13,9 @@ namespace MatchesOfSports.DataAccess
             Context = context;
         }
 
-        public override Comment Get(String theComment)
+        public override Comment Get(Guid id)
         {
-            return Context.Set<Comment>().First(x => x.Comment.Equals(theComment));
+            return Context.Set<Comment>().First(x => x.CommentId == id);
         }
 
         public override IEnumerable<Comment> GetAll()

@@ -1,5 +1,6 @@
 using System.Collections.Generic; 
 using MatchesOfSports.Domain;
+using MatchesOfSports.BusinessLogic.Services;
 
 namespace MatchesOfSports.BusinessLogic.Services
 {
@@ -9,6 +10,5 @@ namespace MatchesOfSports.BusinessLogic.Services
         Comment GetCommentByText(string theComment);
         bool CommentOfDeletedUser(Comment theComment);
         bool CreateComment(Comment newComment);
-        //bool UpdateComment(string userName, User updatedUser);
     }
 }

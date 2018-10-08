@@ -5,11 +5,12 @@ namespace MatchesOfSports.Domain
 {
     public class Match
     {
-        private DateTime DateAndTime {get; set;}
-        private Team TeamOne { get; set; }
-        private Team TeamTwo { get; set; }
-        private List<Comment> Comments {get;set;}
-        private Sport KindOfSport {get;set;}
+        public  Guid  MatchId  {get;set;}
+        public  DateTime DateAndTime {get; set;}
+        public Team TeamOne { get; set; }
+        public Team TeamTwo { get; set; }
+        public List<Comment> Comments {get;set;}
+        public Sport KindOfSport {get;set;}
 
         
         public Match(){
