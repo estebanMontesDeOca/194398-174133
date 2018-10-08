@@ -35,13 +35,13 @@ namespace MatchesOfSports.BusinessLogic.Services
             return unitOfWork.SportRepository.Get(id);
         }
 
-        public IEnumerable<Team> GetTeamsBySportName(string sportName)
+        public IEnumerable<Team> GetTeamsBySportName(Guid id)
         {
-            Sport theSport = this.GetSportBySportName(sportName);
+            Sport theSport = this.GetSportById(id);
             return theSport.ListOfTeams;
         }
 
-        public bool DeleteSportBySportName(string sportName)
+        public bool DeleteSportBySportName(Guid id)
         {
             return false;
         }
@@ -53,10 +53,10 @@ namespace MatchesOfSports.BusinessLogic.Services
             return true;
         }
 
-        public bool UpdateSport(string sportName, Sport updatedSport)
+        public bool UpdateSport(Guid id, Sport updatedSport)
         {
-            Sport oldSport =GetSportBySportName(sportName);
-            
+            Sport oldSport =GetSportById(id);
+            oldSport.SportId = updatedSport.SportId;
             oldSport.Name = updatedSport.Name;
             oldSport.ListOfTeams= updatedSport.ListOfTeams;
             oldSport.ListOfMatches = updatedSport.ListOfMatches;

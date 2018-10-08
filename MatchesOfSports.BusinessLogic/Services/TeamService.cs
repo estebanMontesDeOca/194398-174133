@@ -24,21 +24,21 @@ namespace MatchesOfSports.BusinessLogic.Services
 
         public IEnumerable<Team> GetAllTeams()
         {
-            return unitOfWorks.TeamRepository.GetAll();
+            return unitOfWork.TeamRepository.GetAll();
         }
         
-        public Team GetTeamByName(Guid id)
+        public Team GetTeamById(Guid id)
         {
             return unitOfWork.TeamRepository.Get(id);
         }
 
-        public bool DeleteTeamByName (string teamName)
+        public bool DeleteTeamByName (Guid id)
         {
             return false;
         }
         public bool Create(Team newTeam)
         {
-            unitOfWork.TeamRepository.Insert(newTeam);
+            unitOfWork.TeamRepository.Add(newTeam);
             unitOfWork.Save();
             return true;
         }

@@ -8,8 +8,9 @@ namespace MatchesOfSports.BusinessLogic.Services
     {
         IEnumerable<Sport> GetAllSports();
         Sport GetSportById(Guid id);
-        bool DeleteSportBySportName(string sportName);
+        bool DeleteSportBySportName(Guid id);
+        IEnumerable<Team> GetTeamsBySportName(Guid id);
         bool CreateSport(Sport newSport);
-        bool UpdateSport(string userSport, Sport updatedSport);
+        bool UpdateSport(Guid id, Sport updatedSport);
     }
 }

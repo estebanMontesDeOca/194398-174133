@@ -38,7 +38,7 @@ namespace MatchesOfSports.BusinessLogic.Services
             return true;
         }
 
-        public bool UpdateUser(string userName, User updatedUser)
+        public bool UpdateUser(Guid id, User updatedUser)
         {
             if (updatedUser == null)
             {
@@ -50,21 +50,20 @@ namespace MatchesOfSports.BusinessLogic.Services
                 throw new InvalidOperationException(ExceptionMessages.InvalidUserData);
             }
             
-            User userEntity = unitOfWork.UserRepository.GetUserByUserName(userName);
+            User userEntity = unitOfWork.UserRepository.GetUserById(id);
 
             if( userEntity == null)
             {
                 throw new InvalidOperationException(ExceptionMessages.InvalidUserData);
             }
-
-                user.Name = updatedUser.Name;
-                user.SureName = updatedUser.SureName;
-                user.UserName = updatedUser.UserName;
-                user.Passrword = updatedUser.Password;
-                user.Email     = updatedUser.Email;
-                user.WasDeleted = updatedUser.WasDeleted;
-                user.UserRole = updatedUser.UserRole;
-                UpdateUser(userName,updatedUser);
+                userEntity.UserId= updatedUser.UserId;
+                userEntity.Name = updatedUser.Name;
+                userEntity.SureName = updatedUser.SureName;
+                userEntity.UserName = updatedUser.UserName;
+                userEntity.Passrword = updatedUser.Password;
+                userEntity.Email     = updatedUser.Email;
+                userEntity.WasDeleted = updatedUser.WasDeleted;
+                userEntity.UserRole = updatedUser.UserRole;
 
             unitOfWork.UserRepository.Update(userEntity);
             unitOfWork.Save();
@@ -75,11 +74,11 @@ namespace MatchesOfSports.BusinessLogic.Services
         {
             return unitOfWork.UserRepository.Get(u => u.UserId == user.UserId).Count() > 0;
         }
-        public bool DeleteUserByUserName(String userName)
+        public bool DeleteUserByUserName(Guid id)
         {
             try
             {
-                User user = GetUserByUserName(userName);
+                User user = GetUserByUserName(id);
                 User updatedUser = new User();
                 user.UserId      = updatedUser.UserId;
                 user.Name        = updatedUser.Name;
@@ -89,7 +88,7 @@ namespace MatchesOfSports.BusinessLogic.Services
                 user.Email       = updatedUser.Email;
                 updatedUser.WasDeleted = true;
                 user.UserRole = updatedUser.UserRole;
-                UpdateUser(userName,updatedUser);
+                UpdateUser(user.UserId ,updatedUser);
                 return true;
             }
             catch (ArgumentNullException)
