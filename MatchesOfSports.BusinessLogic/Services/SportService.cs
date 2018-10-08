@@ -30,9 +30,9 @@ namespace MatchesOfSports.BusinessLogic.Services
                
         }
 
-        public Sport GetSportBySportName(string sportName)
+        public Sport GetSportBySportName(Guid id)
         {
-            return unitOfWork.SportRepository.Get(sportName);
+            return unitOfWork.SportRepository.Get(id);
         }
 
         public IEnumerable<Team> GetTeamsBySportName(string sportName)

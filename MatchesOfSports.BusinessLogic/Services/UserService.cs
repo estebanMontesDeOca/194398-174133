@@ -73,7 +73,7 @@ namespace MatchesOfSports.BusinessLogic.Services
 
         private bool ExistsUser(User user)
         {
-            return unitOfWork.UserRepository.Get(u => u.UserName == user.UserName).Count() > 0;
+            return unitOfWork.UserRepository.Get(u => u.UserId == user.UserId).Count() > 0;
         }
         public bool DeleteUserByUserName(String userName)
         {
@@ -81,6 +81,7 @@ namespace MatchesOfSports.BusinessLogic.Services
             {
                 User user = GetUserByUserName(userName);
                 User updatedUser = new User();
+                user.UserId      = updatedUser.UserId;
                 user.Name        = updatedUser.Name;
                 user.SureName    = updatedUser.SureName;
                 user.UserName    = updatedUser.UserName;
@@ -98,9 +99,9 @@ namespace MatchesOfSports.BusinessLogic.Services
         }
 
 
-        public User GetUserByUserName(String userNam)
+        public User GetUserByUserName(Guid id)
         {
-            return unitOfWork.UserRepository.Get(UserName);
+            return unitOfWork.UserRepository.Get(id);
         }
 
          public IEnumerable<User> GetAllUsers()

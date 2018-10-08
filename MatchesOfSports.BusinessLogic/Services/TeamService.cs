@@ -27,15 +27,9 @@ namespace MatchesOfSports.BusinessLogic.Services
             return unitOfWorks.TeamRepository.GetAll();
         }
         
-        public Team GetTeamByName(string teamName)
+        public Team GetTeamByName(Guid id)
         {
-            return unitOfWork.TeamRepository.Get(teamName);
-        }
-
-
-        public IEnumerable<Team> GetTeamsBySport(string sportName)
-        {
-            return new IEnumerable<Team>();
+            return unitOfWork.TeamRepository.Get(id);
         }
 
         public bool DeleteTeamByName (string teamName)

@@ -6,8 +6,7 @@ namespace MatchesOfSports.BusinessLogic.Services
     public interface ISportService
     {
         IEnumerable<Sport> GetAllSports();
-        Sport GetSportBySportName(string sportName);
-        //IEnumerable<Team> GetTeamsBySportName(string sportName);
+        Sport GetSportById(Guid id);
         bool DeleteSportBySportName(string sportName);
         bool CreateSport(Sport newSport);
         bool UpdateSport(string userSport, Sport updatedSport);
