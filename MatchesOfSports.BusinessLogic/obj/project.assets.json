@@ -25,6 +25,29 @@
         "build": {
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
+      },
+      "MatchesOfSports.DataAccess.Interface/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "dependencies": {
+          "MatchesOfSports.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/MatchesOfSports.DataAccess.Interface.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MatchesOfSports.DataAccess.Interface.dll": {}
+        }
+      },
+      "MatchesOfSports.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "compile": {
+          "bin/placeholder/MatchesOfSports.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MatchesOfSports.Domain.dll": {}
+        }
       }
     }
   },
@@ -168,10 +191,22 @@
         "netstandard.library.2.0.3.nupkg.sha512",
         "netstandard.library.nuspec"
       ]
+    },
+    "MatchesOfSports.DataAccess.Interface/1.0.0": {
+      "type": "project",
+      "path": "../MatchesOfSports.DataAccess.Interface/MatchesOfSports.DataAccess.Interface.csproj",
+      "msbuildProject": "../MatchesOfSports.DataAccess.Interface/MatchesOfSports.DataAccess.Interface.csproj"
+    },
+    "MatchesOfSports.Domain/1.0.0": {
+      "type": "project",
+      "path": "../MatchesOfSports.Domain/MatchesOfSports.Domain.csproj",
+      "msbuildProject": "../MatchesOfSports.Domain/MatchesOfSports.Domain.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.0": [
+      "MatchesOfSports.DataAccess.Interface >= 1.0.0",
+      "MatchesOfSports.Domain >= 1.0.0",
       "NETStandard.Library >= 2.0.3"
     ]
   },
@@ -202,7 +237,14 @@
       },
       "frameworks": {
         "netstandard2.0": {
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\Usuario\\Desktop\\194398-174133\\MatchesOfSports.DataAccess.Interface\\MatchesOfSports.DataAccess.Interface.csproj": {
+              "projectPath": "C:\\Users\\Usuario\\Desktop\\194398-174133\\MatchesOfSports.DataAccess.Interface\\MatchesOfSports.DataAccess.Interface.csproj"
+            },
+            "C:\\Users\\Usuario\\Desktop\\194398-174133\\MatchesOfSports.Domain\\MatchesOfSports.Domain.csproj": {
+              "projectPath": "C:\\Users\\Usuario\\Desktop\\194398-174133\\MatchesOfSports.Domain\\MatchesOfSports.Domain.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

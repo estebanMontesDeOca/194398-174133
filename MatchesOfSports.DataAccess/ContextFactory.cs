@@ -1,4 +1,5 @@
 using System;
+using System.Object;
 using System.Collections.Generic;
 using System.Linq;
 using MatchesOfSports.Domain;
@@ -20,12 +21,9 @@ namespace Homeworks.DataAccess
             return GetNewContext();
         }
 
-        public static MatchesOfSportsContext GetNewContext(ContextType type = ContextType.MEMORY) 
+        public static MatchesOfSportsContext GetNewContext() 
         {
-            if (type == ContextType.SQL) {
                 return GetSqlContext(@"Server=.\SQLEXPRESS;Database=HomeworksDB;Trusted_Connection=True;MultipleActiveResultSets=True;");
-            }
-            return GetMemoryContext();
         }
 
         public static MatchesOfSportsContext GetMemoryContext() 

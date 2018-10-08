@@ -4,4 +4,9 @@
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
+   <ItemGroup>
+    <ProjectReference Include="..\MatchesOfSports.DataAccess.Interface\MatchesOfSports.DataAccess.Interface.csproj" />
+    <ProjectReference Include="..\MatchesOfSports.Domain\MatchesOfSports.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

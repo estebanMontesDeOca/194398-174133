@@ -18,6 +18,6 @@ namespace MatchesOfSports.Domain
             TeamTwo = new Team();
             Comments = new List<Comment>();
             KindOfSport = new Sport();
-        } 
+        }
     }
 }

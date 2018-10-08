@@ -1,3 +1,11 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Threading.Tasks;
+using MatchesOfSports.DataAccess.Interface.IUnitOfWork;
+using MatchesOfSports.DataAccess.Interface.IRepositoryOf;
+
 public class UnitOfWork : IUnitOfWork
 {
     private readonly MatchesOfSportsContext context;
@@ -5,8 +13,7 @@ public class UnitOfWork : IUnitOfWork
     private IRepositoryOf<Team> teamRepository;
     private IRepositoryOf<Match> matchRepository;
     private IRepositoryOf<Sport> sportRepository;
-    private IRepositoryOf<Comment> commentRepository
-    ;
+    private IRepositoryOf<Comment> commentRepository;
     public UnitOfWork(MatchesOfSportsContext matchesContext)
     {
         context = matchesContext;

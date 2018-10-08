@@ -1,4 +1,5 @@
 using System;
+using System.Globalization;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
@@ -36,7 +37,7 @@ namespace MatchesOfSports.Domain
         }
 
 
-        public bool IsAllowedToEditAllInformation() => Role.Equals(Role.Admin);
+        public bool IsAllowedToEditAllInformation() => UserRole.Equals(Role.Admin);
         public bool IsValid()
         {
             if (   IsNullOrEmpty(Name)
@@ -44,7 +45,7 @@ namespace MatchesOfSports.Domain
                 || IsNullOrEmpty(UserName) 
                 || IsNullOrEmpty(Password)
                 || IsValidEmail(Email)  
-                || !ValidRole(Role))
+                || !ValidRole(UserRole))
            {
                 return false;
             }
@@ -86,8 +87,7 @@ namespace MatchesOfSports.Domain
    private string DomainMapper(Match match)
    {
       // IdnMapping class with default property values.
-      IdnMapping idn = new IdnMapping();
-
+      IdnMapping idn = new IdnMapping(); 
       string domainName = match.Groups[2].Value;
       try {
          domainName = idn.GetAscii(domainName);

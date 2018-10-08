@@ -75,13 +75,13 @@ namespace MatchesOfSports.BusinessLogic
             return unitOfWork.UserRepository.Get(u => u.UserName == user.UserName).Count() > 0;
         }
 
-        public void DeleteUser(string userName)
+        public void DeleteUser(String userName)
         {
             unitOfWork.UserRepository.Delete(userName);
             unitOfWork.Save();
         }
 
-        public bool DeleteUserByUserName(string userName)
+        public bool DeleteUserByUserName(String userName)
         {
             try
             {
@@ -104,7 +104,7 @@ namespace MatchesOfSports.BusinessLogic
         }
 
 
-        public User GetUserByUserName(string userNam)
+        public User GetUserByUserName(String userNam)
         {
             return unitOfWork.UserRepository.Get(UserName);
         }
