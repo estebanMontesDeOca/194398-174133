@@ -13,7 +13,7 @@ namespace MatchesOfSports.BusinessLogic.Services
     {
         private IUnitOfWork unitOfWork;
 
-        public CommentService(IUnitOfWork unitOfWork)
+        public MatchService(IUnitOfWork unitOfWork)
         {
             if (unitOfWork == null)
             {
@@ -38,10 +38,10 @@ namespace MatchesOfSports.BusinessLogic.Services
                 throw new InvalidOperationException("Could not get match - Match does not exist");
             }
         }
-        public bool DeleteMatch(Guid Id)
+        public bool DeleteMatch(Guid id)
         {
             try{    
-                Team toDelete= GetMatchById(id);
+                Match toDelete= GetMatchById(id);
                 toDelete.WasDeleted = true;
                 UpdateMatch(id,toDelete);
                 return true;
@@ -69,10 +69,10 @@ namespace MatchesOfSports.BusinessLogic.Services
         public bool UpdateMatch(Guid id, Match updatedMatch)
         {
             try{
-                Match oldMatch =GetMatchtById(id);
-                oldMatch.MatchtId = updatedMatch.MatchtId;
+                Match oldMatch =GetMatchById(id);
+                oldMatch.MatchId = updatedMatch.MatchId;
                 oldMatch.DateAndTime = updatedMatch.DateAndTime;
-                oldMatch.TemaOne= updatedMatch.TeamOne;
+                oldMatch.TeamOne= updatedMatch.TeamOne;
                 oldMatch.TeamTwo = updatedMatch.TeamTwo;
                 oldMatch.Comments = updatedMatch.Comments;
                 oldMatch.KindOfSport = updatedMatch.KindOfSport;
@@ -88,3 +88,4 @@ namespace MatchesOfSports.BusinessLogic.Services
         }
 
     }
+}

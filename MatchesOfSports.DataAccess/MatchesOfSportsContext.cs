@@ -15,6 +15,6 @@ namespace MatchesOfSports.DataAccess
         public DbSet<Team>  Team  {get;set;}
         public DbSet<Comment> Comments {get;set;}
 
-        public MatchesOfSportsContext(DbContextOptions options) : base("name=MatchesOfSportsDB") { }
+        public MatchesOfSportsContext(DbContextOptions options) : base(options) { }
     }
 }
