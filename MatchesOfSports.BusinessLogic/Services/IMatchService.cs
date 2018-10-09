@@ -9,7 +9,7 @@ namespace MatchesOfSports.BusinessLogic.Services
         IEnumerable<Match> GetAllTheMatches();
         Match GetMatchById(Guid id);
         bool DeleteMatch(Guid Id);
-        bool CreateMathc(Match newMatch);
-        bool UpdateMatch(string userName, User updatedUser);
+        bool CreateMatch(Match newMatch);
+        bool UpdateMatch(Guid id, Match updatedMatch);
     }
 }

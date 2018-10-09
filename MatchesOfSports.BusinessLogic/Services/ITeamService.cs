@@ -10,6 +10,6 @@ namespace MatchesOfSports.BusinessLogic.Services
         Team GetTeamById(Guid id); 
         bool DeleteTeamByName (Guid id);
         bool Create(Team newTeam);
-        bool UpdateTeam(string steamName, Team updatedTeam);
+        bool UpdateTeam(Guid id, Team updatedTeam);
     }
 }
