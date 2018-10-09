@@ -24,17 +24,34 @@ namespace MatchesOfSports.BusinessLogic.Services
 
         public IEnumerable<Team> GetAllTeams()
         {
+          try{  
             return unitOfWork.TeamRepository.GetAll();
+          }catch(ArgumentNullException){
+              throw new InvalidOperationException("Could not get all teams - Data Base empty");
+          }
         }
         
         public Team GetTeamById(Guid id)
         {
-            return unitOfWork.TeamRepository.Get(id);
+            try {
+                return unitOfWork.TeamRepository.Get(id);
+            }catch(ArgumentNullException)
+            {
+                throw new InvalidOperationException("Could not get team - Team does not exist");
+            }
         }
 
         public bool DeleteTeamByName (Guid id)
         {
-            return false;
+            try{    
+                Team toDelete= GetTeamById(id);
+                toDelete.WasDeleted = true;
+                UpdateTeam(id,toDelete);
+                return true;
+            }catch(ArgumentNullException)
+            {
+                throw new InvalidOperationException("Could not delet the team - Team does not exist"); 
+            }
         }
         public bool Create(Team newTeam)
         {
@@ -42,9 +59,20 @@ namespace MatchesOfSports.BusinessLogic.Services
             unitOfWork.Save();
             return true;
         }
-        public bool UpdateTeam(string teamName, Team updatedTeam)
+        public bool UpdateTeam(Guid id, Team updatedTeam)
         {
-           return false;
+            try{    
+                Team toUpdate= GetTeamById(id);
+                toUpdate.TeamId = updatedTeam.TeamId;
+                toUpdate.Name   = updatedTeam.Name;
+                toUpdate.PhotoUrl = updatedTeam.PhotoUrl;
+                toUpdate.WasDeleted = updatedTeam.WasDeleted;
+    
+                return true;
+            }catch(ArgumentNullException)
+            {
+                throw new InvalidOperationException("Could not delet the team - Team does not exist"); 
+            }
         }
         
     }
