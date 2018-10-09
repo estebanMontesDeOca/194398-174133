@@ -24,14 +24,22 @@ namespace MatchesOfSports.BusinessLogic.Services
 
         public bool CreateComment(Comment newComment)
         {
-            //COMPROBAR QUE NO SEA NULL
-            unitOfWork.CommentRepository.Add(newComment);
-            unitOfWork.Save();
-            return true;
+           if(newComment==null){
+               throw new InvalidOperationException("Could not create comment - Comment empty");
+           }else{
+                unitOfWork.CommentRepository.Add(newComment);
+                unitOfWork.Save();
+                return true;
+           }
         }
         public Comment GetCommentById(Guid id)
         {
+          try{  
             return unitOfWork.CommentRepository.Get(id);
+          }catch(ArgumentNullException)
+            {
+                throw new InvalidOperationException("Could not get comment - Comment  does not exists");
+            }
         }
 
          public bool CommentOfDeletedUser(Comment theComment)
@@ -41,7 +49,13 @@ namespace MatchesOfSports.BusinessLogic.Services
 
          public IEnumerable<Comment> GetAllComments()
          {
-             return unitOfWork.CommentRepository.GetAll();
+             try{
+                return unitOfWork.CommentRepository.GetAll();
+             }catch(ArgumentNullException)
+            {
+                throw new InvalidOperationException("Could not get all comments - Data Base empty");
+            }
+
          }
 
 
