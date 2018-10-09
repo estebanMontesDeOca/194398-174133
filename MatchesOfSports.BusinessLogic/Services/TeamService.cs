@@ -27,7 +27,7 @@ namespace MatchesOfSports.BusinessLogic.Services
           try{  
             return unitOfWork.TeamRepository.GetAll();
           }catch(ArgumentNullException){
-              throw new InvalidOperationException("Could not get all teams - Data Base empty");
+            throw new InvalidOperationException("Could not get all teams - Data Base empty");
           }
         }
         
@@ -53,11 +53,20 @@ namespace MatchesOfSports.BusinessLogic.Services
                 throw new InvalidOperationException("Could not delet the team - Team does not exist"); 
             }
         }
+
+        public bool ExistTeam(Guid Id)
+        {
+            return unitOfWork.TeamRepository.Get(id) != null;
+        }
         public bool Create(Team newTeam)
         {
-            unitOfWork.TeamRepository.Add(newTeam);
-            unitOfWork.Save();
-            return true;
+            if (ExistTeam(newTeam.TeamId)){
+                throw new InvalidOperationException("Could not create team - Team already exist"); 
+            }else{
+                unitOfWork.TeamRepository.Add(newTeam);
+                unitOfWork.Save();
+                return true;
+            }
         }
         public bool UpdateTeam(Guid id, Team updatedTeam)
         {
@@ -69,7 +78,7 @@ namespace MatchesOfSports.BusinessLogic.Services
                 toUpdate.WasDeleted = updatedTeam.WasDeleted;
                 unitOfWork.TeamRepository.Update(toUpdate);
                 unitOfWork.Save();
-                return true
+                return true;
             }catch(ArgumentNullException)
             {
                 throw new InvalidOperationException("Could not delet the team - Team does not exist"); 
