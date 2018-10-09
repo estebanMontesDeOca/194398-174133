@@ -69,7 +69,7 @@ namespace MatchesOfSports.BusinessLogic.Services
             bool isValid = true;
             if(IsItCorrectTheSport(theMatch.TeamOne,theMatch.TheSport) && IsItCorrectTheSport(theMatch.TeamOne,theMatch.TheSport))
             {
-               if(HaveMatch(teamOneId,matchDate) || HaveMatch(teamOneId,matchDate))
+               if(HaveAMatch(theMatch.TeamOne,matchDate) || HaveAMatch(theMatch.TeamTwo,matchDate))
                {
                    isValid = false;
                }
@@ -77,12 +77,21 @@ namespace MatchesOfSports.BusinessLogic.Services
                 isValid = false;
             }
             
-            return isValid
+            return isValid;
         }
 
-        public bool HaveMatch(Guid team, DateTime matchDate)
+        public bool HaveAMatch(Team team, DateTime matchDate)
         {
-            return unitOfWork.MatchRepository.GetById(id) != null;
+            bool haveAMatch = false;
+            foreach(Match oneMatch in team.ListOfMatches)
+            {
+                int result = DateTime.Compare(oneMatch.DateAndTime,matchDate);  
+                if(result==0)
+                {
+                    haveAMatch = true;
+                }
+            } 
+            return haveAMatch;
         }
         public bool CreateMatch(Match newMatch)
         {

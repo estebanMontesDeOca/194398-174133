@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace MatchesOfSports.Domain
 {
@@ -16,7 +17,7 @@ namespace MatchesOfSports.Domain
         public Team(){
             Name="noName";
             PhotoUrl="noPhoto";            
-            ListOfSports= new List<Sport>();
+            LisOfSports= new List<Sport>();
             ListOfTeams=new List<Team>();
             ListOfMatches= new List<Match>();
             WasDeleted=true;
