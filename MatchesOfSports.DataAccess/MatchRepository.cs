@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Homeworks.Domain;
+using MatchesOfSports.Domain;
 using Microsoft.EntityFrameworkCore;
 
 namespace MatchesOfSports.DataAccess
@@ -23,9 +23,9 @@ namespace MatchesOfSports.DataAccess
             return Context.Set<Match>().ToList();
         }
 
-        public override void Remove(Match entity) 
+        /* public override void Remove(Match entity) 
         {
             Context.Set<Match>().Remove(entity);
-        }
+        }*/
     }
 }

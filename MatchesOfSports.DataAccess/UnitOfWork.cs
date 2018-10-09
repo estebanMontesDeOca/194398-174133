@@ -3,43 +3,44 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using MatchesOfSports.DataAccess.Interface.IUnitOfWork;
-using MatchesOfSports.DataAccess.Interface.IRepositoryOf;
+using MatchesOfSports.Domain;
+using MatchesOfSports.DataAccess.Interface;
+using MatchesOfSports.DataAccess;
 
 public class UnitOfWork : IUnitOfWork
 {
     private readonly MatchesOfSportsContext context;
-    private IRpositoryOf<User> userRepository;
+    private IRepositoryOf<User> userRepository;
     private IRepositoryOf<Team> teamRepository;
     private IRepositoryOf<Match> matchRepository;
     private IRepositoryOf<Sport> sportRepository;
     private IRepositoryOf<Comment> commentRepository;
-    public UnitOfWork(MatchesOfSportsContext matchesContext)
+    public UnitOfWork(MatchesOfSportsContext MatchesContext)
     {
-        context = matchesContext;
+        context = MatchesContext;
     }
-    public IRpositoryOf<Comment> CommentRepository
+    public IRepositoryOf<Comment> CommentRepository
     {
         get
         {
             return commentRepository = commentRepository ?? new IRepositoryOf<Comment>(context);
         }
     }
-      public IRpositoryOf<Sport> SportRepository
+      public IRepositoryOf<Sport> SportRepository
     {
         get
         {
             return sportRepository = sportRepository ?? new IRepositoryOf<Sport>(context);
         }
     }
-    public IRpositoryOf<Match> MatchRepository
+    public IRepositoryOf<Match> MatchRepository
     {
         get
         {
             return matchRepository = matchRepository ?? new IRepositoryOf<Match>(context);
         }
     }
-    public IRpositoryOf<User> UserRepository
+    public IRepositoryOf<User> UserRepository
     {
         get
         {
@@ -47,13 +48,19 @@ public class UnitOfWork : IUnitOfWork
         }
     }
 
-    public IGenericRepository<Team> TeamRepository
+    public IRepositoryOf<Team> TeamRepository
     {
         get
         {
             return teamRepository = teamRepository ?? new IRepositoryOf<Team>(context);
         }
     }
+
+    public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
 
     public void Save()
     {
