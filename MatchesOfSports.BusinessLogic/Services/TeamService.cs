@@ -67,8 +67,9 @@ namespace MatchesOfSports.BusinessLogic.Services
                 toUpdate.Name   = updatedTeam.Name;
                 toUpdate.PhotoUrl = updatedTeam.PhotoUrl;
                 toUpdate.WasDeleted = updatedTeam.WasDeleted;
-    
-                return true;
+                unitOfWork.TeamRepository.Update(toUpdate);
+                unitOfWork.Save();
+                return true
             }catch(ArgumentNullException)
             {
                 throw new InvalidOperationException("Could not delet the team - Team does not exist"); 
