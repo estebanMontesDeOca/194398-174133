@@ -25,7 +25,7 @@ namespace MatchesOfSports.BusinessLogic.Services
         public IEnumerable<Team> GetAllTeams()
         {
           try{  
-            return unitOfWork.TeamRepository.GetAll();
+            return unitOfWork.TeamRepository.Get();
           }catch(ArgumentNullException){
             throw new InvalidOperationException("Could not get all teams - Data Base empty");
           }
@@ -34,7 +34,7 @@ namespace MatchesOfSports.BusinessLogic.Services
         public Team GetTeamById(Guid id)
         {
             try {
-                return unitOfWork.TeamRepository.Get(id);
+                return unitOfWork.TeamRepository.GetById(id);
             }catch(ArgumentNullException)
             {
                 throw new InvalidOperationException("Could not get team - Team does not exist");
@@ -56,14 +56,14 @@ namespace MatchesOfSports.BusinessLogic.Services
 
         public bool ExistTeam(Guid id)
         {
-            return unitOfWork.TeamRepository.Get(id) != null;
+            return unitOfWork.TeamRepository.GetById(id) != null;
         }
         public bool Create(Team newTeam)
         {
             if (ExistTeam(newTeam.TeamId)){
                 throw new InvalidOperationException("Could not create team - Team already exist"); 
             }else{
-                unitOfWork.TeamRepository.Add(newTeam);
+                unitOfWork.TeamRepository.Insert(newTeam);
                 unitOfWork.Save();
                 return true;
             }
