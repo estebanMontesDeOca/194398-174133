@@ -1,8 +1,11 @@
 using System;
+using System.Net;
+using System.Web.Http; 
 using Microsoft.AspNetCore.Mvc;
 using MatchesOfSports.Domain;
 using MatchesOfSports.BusinessLogic;
 using MatchesOfSports.BusinessLogic.Services;
+using MatchesOfSports.WebApi.Filters;
 
 namespace MatchesOfSports.WebApi.Controllers
 {
@@ -12,24 +15,24 @@ namespace MatchesOfSports.WebApi.Controllers
     {
         private IUsersService usersService;
 
-        public UsersController(IUsersService usersService) : this()
+        public UsersController(IUsersService usersService)
         {
             this.usersService =usersService;
         }
 
-        [AuthorizeRoles(Role.Admin)]
+        [ProtectFilter("Admin")]
         [HttpGet]
         public IActionResult Get()
         {
-            return Ok(users.GetAllUsers());
+            return Ok(usersService.GetAllUsers());
         }
 
-        [AuthorizeRoles(Role.Admin)]
+        [ProtectFilter("Admin")]
         [HttpGet]
         [Route("{id}")]
-        public IHttpActionResult GetUserById(int id)
+        public IActionResult GetUserById(Guid id)
         {
-            User userToRetrieve = service.GetUserById(id);
+            User userToRetrieve = usersService.GetUserByUserId(id);
             if (userToRetrieve == null)
             {
                 return NotFound();
@@ -37,14 +40,14 @@ namespace MatchesOfSports.WebApi.Controllers
             return Ok(userToRetrieve);
         }
 
-        [AuthorizeRoles(Role.Administrator)]
+        [ProtectFilter("Admin")]
         [HttpDelete]
         [Route("{UserName}")]
-        public IHttpActionResult DeleteUserByUserName(String userName)
+        public IActionResult DeleteUserByUserName(Guid id)
         {
             try
             {
-                if (service.DeleteUserByUserName(userName))
+                if (usersService.DeleteUserByUserName(id))
                 {
                     return StatusCode(HttpStatusCode.NoContent);
                 }
@@ -60,19 +63,10 @@ namespace MatchesOfSports.WebApi.Controllers
         public IActionResult Post([FromBody]User model)
         {
             try {
-                var user = users.Create(UserModel.ToEntity(model));
-                return CreatedAtRoute("Get", new { userName = user.UserName }, UserModel.ToModel(user));
+                var user = usersService.CreateUser(model);
+                return CreatedAtRoute("Get", model);
             } catch(ArgumentException e) {
                 return BadRequest(e.Message);
-            }
-        }
-
-        protected override void Dispose(bool disposing) 
-        {
-            try {
-                base.Dispose(disposing);
-            } finally {
-                users.Dispose();
             }
         }
     }
