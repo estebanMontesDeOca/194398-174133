@@ -27,7 +27,7 @@ namespace MatchesOfSports.BusinessLogic.Services
            if(newComment==null){
                throw new InvalidOperationException("Could not create comment - Comment empty");
            }else{
-                unitOfWork.CommentRepository.Add(newComment);
+                unitOfWork.CommentRepository.Insert(newComment);
                 unitOfWork.Save();
                 return true;
            }
@@ -35,7 +35,7 @@ namespace MatchesOfSports.BusinessLogic.Services
         public Comment GetCommentById(Guid id)
         {
           try{  
-            return unitOfWork.CommentRepository.Get(id);
+            return unitOfWork.CommentRepository.GetById(id);
           }catch(ArgumentNullException)
             {
                 throw new InvalidOperationException("Could not get comment - Comment  does not exists");
@@ -50,7 +50,7 @@ namespace MatchesOfSports.BusinessLogic.Services
          public IEnumerable<Comment> GetAllComments()
          {
              try{
-                return unitOfWork.CommentRepository.GetAll();
+                return unitOfWork.CommentRepository.Get();
              }catch(ArgumentNullException)
             {
                 throw new InvalidOperationException("Could not get all comments - Data Base empty");
