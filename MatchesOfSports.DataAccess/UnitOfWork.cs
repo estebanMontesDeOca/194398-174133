@@ -10,6 +10,8 @@ using MatchesOfSports.DataAccess;
 public class UnitOfWork : IUnitOfWork
 {
     private readonly MatchesOfSportsContext context;
+    private bool disposed = false;
+
     private IRepositoryOf<User> userRepository;
     private IRepositoryOf<Team> teamRepository;
     private IRepositoryOf<Match> matchRepository;
@@ -23,28 +25,31 @@ public class UnitOfWork : IUnitOfWork
     {
         get
         {
-            return commentRepository = commentRepository ?? new IRepositoryOf<Comment>(context);
+            if(commentRepository==null){
+                commentRepository = new CommentRepository(context);
+            }
+            return commentRepository;
         }
     }
       public IRepositoryOf<Sport> SportRepository
     {
         get
         {
-            return sportRepository = sportRepository ?? new IRepositoryOf<Sport>(context);
+            return sportRepository = sportRepository ?? new SportRepository(context);
         }
     }
     public IRepositoryOf<Match> MatchRepository
     {
         get
         {
-            return matchRepository = matchRepository ?? new IRepositoryOf<Match>(context);
+            return matchRepository = matchRepository ?? new MatchRepository(context);
         }
     }
     public IRepositoryOf<User> UserRepository
     {
         get
         {
-            return userRepository = userRepository ?? new IRepositoryOf<User>(context);
+            return userRepository = userRepository ?? new UserRepository(context);
         }
     }
 
@@ -52,7 +57,7 @@ public class UnitOfWork : IUnitOfWork
     {
         get
         {
-            return teamRepository = teamRepository ?? new IRepositoryOf<Team>(context);
+            return teamRepository = teamRepository ?? new TeamRepository(context);
         }
     }
 
@@ -60,6 +65,18 @@ public class UnitOfWork : IUnitOfWork
         {
             Dispose(true);
             GC.SuppressFinalize(this);
+        }
+
+     protected virtual void Dispose(bool disposing)
+        {
+            if (!this.disposed)
+            {
+                if (disposing)
+                {
+                    context.Dispose();
+                }
+            }
+            this.disposed = true;
         }
 
     public void Save()

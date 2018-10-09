@@ -6,7 +6,16 @@ namespace MatchesOfSports.DataAccess
 {
     public abstract class BaseRepository<T> : IRepositoryOf<T> where T : class
     {
-        protected DbContext Context {get; set;}
+        protected MatchesOfSportsContext Context {get; set;}
+        
+         public BaseRepository(MatchesOfSportsContext context)
+        {
+            if (context == null)
+            {
+                throw new ArgumentNullException();
+            }
+            Context = context; 
+        }
         
         public void Add(T entity) 
         {
