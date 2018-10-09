@@ -54,9 +54,9 @@ namespace MatchesOfSports.BusinessLogic.Services
         public bool IsItCorrectTheSport(Team team, Sport sport)
         {
             bool isTheSameSport = false;
-            foreach(Sport oneSport in team.ListOfSports)
+            foreach(Sport oneSport in team.LisOfSports)
             {
-                if(oneSport.Equals(IsTheSameSport))
+                if(oneSport.Equals(sport))
                 {
                     isTheSameSport = true;
                 }
@@ -69,7 +69,7 @@ namespace MatchesOfSports.BusinessLogic.Services
             bool isValid = true;
             if(IsItCorrectTheSport(theMatch.TeamOne,theMatch.TheSport) && IsItCorrectTheSport(theMatch.TeamOne,theMatch.TheSport))
             {
-               if(HaveAMatch(theMatch.TeamOne,matchDate) || HaveAMatch(theMatch.TeamTwo,matchDate))
+               if(HaveAMatch(theMatch.TeamOne,theMatch.DateAndTime) || HaveAMatch(theMatch.TeamTwo,theMatch.DateAndTime))
                {
                    isValid = false;
                }
