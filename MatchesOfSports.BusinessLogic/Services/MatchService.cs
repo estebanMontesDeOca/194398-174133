@@ -51,36 +51,70 @@ namespace MatchesOfSports.BusinessLogic.Services
             }
         }
 
-        public bool ExistMatch(Guid id)
+        public bool IsItCorrectTheSport(Team team, Sport sport)
+        {
+            bool IsTheSameSport = false;
+            foreach(B itemB in Sport.Lista)
+            {
+
+            }   
+        }
+
+        public bool ValidMatch(Match theMatch)
+        {
+            bool isValid = true;
+            if(IsItCorrectTheSport(theMatch.TeamOne,theMatch.TheSport) && IsItCorrectTheSport(theMatch.TeamOne,theMatch.TheSport))
+            {
+               if(HaveMatch(teamOneId,matchDate) || HaveMatch(teamOneId,matchDate))
+               {
+                   isValid = false;
+               }
+            }else{
+                isValid = false;
+            }
+            
+            return isValid
+        }
+
+        public bool HaveMatch(Guid team, DateTime matchDate)
         {
             return unitOfWork.MatchRepository.GetById(id) != null;
         }
         public bool CreateMatch(Match newMatch)
         {
-            if(ExistMatch(newMatch.MatchId)){
-                throw new InvalidOperationException("Could not create new match - Match  already exists");
+            if(newMatch != null){            
+                if(ValidMatch(newMatch)){
+                    throw new InvalidOperationException("Could not create new match - Match  already exists");
+                }else{
+                    unitOfWork.MatchRepository.Insert(newMatch);
+                    unitOfWork.Save();
+                    return true;
+                }
             }else{
-                unitOfWork.MatchRepository.Insert(newMatch);
-                unitOfWork.Save();
-                return true;
-            }
+                    throw new InvalidOperationException("Could not create new match - Match  is null");
+            }    
 
         }
         public bool UpdateMatch(Guid id, Match updatedMatch)
         {
             try{
-                Match oldMatch =GetMatchById(id);
-                oldMatch.MatchId = updatedMatch.MatchId;
-                oldMatch.DateAndTime = updatedMatch.DateAndTime;
-                oldMatch.TeamOne= updatedMatch.TeamOne;
-                oldMatch.TeamTwo = updatedMatch.TeamTwo;
-                oldMatch.Comments = updatedMatch.Comments;
-                oldMatch.KindOfSport = updatedMatch.KindOfSport;
-                oldMatch.WasDeleted = updatedMatch.WasDeleted;
-
-                unitOfWork.MatchRepository.Update(oldMatch);
-                unitOfWork.Save();
-                return true;
+                if(ValidMatch(updatedMatch))
+                {
+                    Match oldMatch =GetMatchById(id);
+                    oldMatch.MatchId = updatedMatch.MatchId;
+                    oldMatch.DateAndTime = updatedMatch.DateAndTime;
+                    oldMatch.TeamOne= updatedMatch.TeamOne;
+                    oldMatch.TeamTwo = updatedMatch.TeamTwo;
+                    oldMatch.Comments = updatedMatch.Comments;
+                    oldMatch.KindOfSport = updatedMatch.KindOfSport;
+                    oldMatch.WasDeleted = updatedMatch.WasDeleted;
+                    unitOfWork.MatchRepository.Update(oldMatch);
+                    unitOfWork.Save();
+                    return true;
+                }else
+                {
+                    return false;
+                }
             }catch(ArgumentNullException)
             {
                 throw new InvalidOperationException("Could not update match - Match  does not exists");

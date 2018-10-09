@@ -41,15 +41,6 @@ namespace MatchesOfSports.BusinessLogic.Services
             }
         }
 
-        public IEnumerable<Team> GetTeamsBySportName(Guid id)
-        {
-            try{   
-                Sport theSport = this.GetSportById(id);
-                return theSport.ListOfTeams;
-            }catch(ArgumentNullException){
-                throw new InvalidOperationException("Could not get Teams by sport - Sport doesnt exists");
-            }
-        }
 
         public bool DeleteSportBySportName(Guid id)
         {
@@ -86,9 +77,6 @@ namespace MatchesOfSports.BusinessLogic.Services
                 Sport oldSport =GetSportById(id);
                 oldSport.SportId = updatedSport.SportId;
                 oldSport.Name = updatedSport.Name;
-                oldSport.ListOfTeams= updatedSport.ListOfTeams;
-                oldSport.ListOfMatches = updatedSport.ListOfMatches;
-
                 unitOfWork.SportRepository.Update(oldSport);
                 unitOfWork.Save();
                 return true;

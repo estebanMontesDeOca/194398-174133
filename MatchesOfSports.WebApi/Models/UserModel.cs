@@ -7,10 +7,17 @@ namespace MatchesOfSports.WebApi.Models
 {
     public class CommentModel : Model<Comment, CommentModel>
     {
-        public Guid CommentId { get; set; }
-        public string TheComment { get; set; }
-        public User UserWhoComment { get; set; }
-
+        public Guid   UserId {get;set;}
+        public string Name {get; set;}  
+        public string Surname{get;set;}
+        public string UserName{get;set;}
+        public string Password{get;set;}
+        public string Email{get;set;}
+        public bool   WasDeleted{get;set;}
+        public Role UserRole {get;set;}
+        public List<Comment> ListOfComments {get;set;}
+        public List<Team>    ListOfFavouriteTeams {get;set;}
+        
         public CommentModel(Comment entity)
         {
             SetModel(entity);
