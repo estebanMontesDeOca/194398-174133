@@ -54,7 +54,7 @@ namespace MatchesOfSports.BusinessLogic.Services
             }
         }
 
-        public bool ExistTeam(Guid Id)
+        public bool ExistTeam(Guid id)
         {
             return unitOfWork.TeamRepository.Get(id) != null;
         }
