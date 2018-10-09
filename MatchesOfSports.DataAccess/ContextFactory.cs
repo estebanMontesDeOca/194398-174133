@@ -1,5 +1,4 @@
 using System;
-using System.Object;
 using System.Collections.Generic;
 using System.Linq;
 using MatchesOfSports.Domain;
@@ -7,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
 
-namespace Homeworks.DataAccess
+namespace MatchesOfSports.DataAccess
 {
     public enum ContextType 
     {

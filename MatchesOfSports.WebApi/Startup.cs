@@ -10,6 +10,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using MarchesOfSports.BusinessLogic.Interface;
+using MarchesOfSports.DataAccess.Interface;
 
 namespace MatchesOfSports.WebApi
 {
@@ -27,7 +29,7 @@ namespace MatchesOfSports.WebApi
         { 
             services.AddMvc();
         
-            services.AddDbContext<DbContext, HomeworksContext>(o => o.UseSqlServer(Configuration.GetConnectionString("MatchesOfSportsDB")));
+            services.AddDbContext<DbContext, MatchesOfSportsContext>(o => o.UseSqlServer(Configuration.GetConnectionString("MatchesOfSportsDB")));
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IRepositoryOf<User>, UserRepository>();
             //services.AddScoped<, HomeworkLogic>();
