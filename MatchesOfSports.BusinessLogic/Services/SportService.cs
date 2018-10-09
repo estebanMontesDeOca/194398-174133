@@ -25,14 +25,20 @@ namespace MatchesOfSports.BusinessLogic.Services
 
         public IEnumerable<Sport> GetAllSports()
         {   
-            
+            try{
                 return unitOfWork.SportRepository.GetAll();
-               
+            }catch(ArgumentNullException){
+                throw new InvalidOperationException("Could not get all sports - Data Base empty");
+            }   
         }
 
         public Sport GetSportById(Guid id)
         {
-            return unitOfWork.SportRepository.Get(id);
+            try{
+                return unitOfWork.SportRepository.Get(id);
+            }catch(ArgumentNullException){
+                throw new InvalidOperationException("Could not get all sports - Data Base empty");
+            }
         }
 
         public IEnumerable<Team> GetTeamsBySportName(Guid id)
