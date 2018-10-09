@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace MatchesOfSports.DataAccess
 {
-    public class SportRepository : BaseRepository<Match>
+    public class SportRepository : BaseRepository<Sport>
     {
         public SportRepository(DbContext context)
         {

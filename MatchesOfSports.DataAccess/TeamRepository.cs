@@ -6,9 +6,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace MatchesOfSports.DataAccess
 {
-    public class TeamRepository : BaseRepository<Match>
+    public class TeamRepository : BaseRepository<Team>
     {
-        public MatchRepository(DbContext context)
+        public TeamRepository(DbContext context)
         {
             Context = context;
         }
