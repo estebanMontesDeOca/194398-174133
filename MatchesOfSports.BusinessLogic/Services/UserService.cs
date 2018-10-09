@@ -33,7 +33,7 @@ namespace MatchesOfSports.BusinessLogic.Services
                 throw new InvalidOperationException("Could not create user - The user already exist");
             }
 
-            unitOfWork.UserRepository.Add(newUser);
+            unitOfWork.UserRepository.Insert(newUser);
             unitOfWork.Save();
             return true;
         }
@@ -50,7 +50,7 @@ namespace MatchesOfSports.BusinessLogic.Services
                 throw new InvalidOperationException("Could not update user - Invalid User");
             }
             
-            User userEntity = unitOfWork.UserRepository.Get(id);
+            User userEntity = unitOfWork.UserRepository.GetById(id);
 
             if( userEntity == null)
             {
@@ -72,7 +72,7 @@ namespace MatchesOfSports.BusinessLogic.Services
 
         private bool ExistsUser(User user)
         {
-            return unitOfWork.UserRepository.Get(user.UserId)!=null;
+            return unitOfWork.UserRepository.GetById(user.UserId)!=null;
         }
         public bool DeleteUserByUserName(Guid id)
         {
@@ -101,7 +101,7 @@ namespace MatchesOfSports.BusinessLogic.Services
         public User GetUserByUserId(Guid id) 
         {
            try{
-                return unitOfWork.UserRepository.Get(id);
+                return unitOfWork.UserRepository.GetById(id);
            } catch (ArgumentNullException)
             {
                throw new InvalidOperationException("Could not get user - User does not exist");
@@ -111,7 +111,7 @@ namespace MatchesOfSports.BusinessLogic.Services
          public IEnumerable<User> GetAllUsers()
          {
             try{ 
-             return unitOfWork.UserRepository.GetAll();
+             return unitOfWork.UserRepository.Get();
             }catch(ArgumentNullException)
             {
                 throw new InvalidOperationException("Could not get users- DB is empty");
