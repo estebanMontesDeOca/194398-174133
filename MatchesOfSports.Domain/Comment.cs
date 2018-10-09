@@ -3,7 +3,7 @@ namespace MatchesOfSports.Domain
 {
     public class Comment
     {
-        public Guid Commet {get;set;}
+        public Guid CommentId {get;set;}
         public string TheComment {get; set;}  
         public User   UserWhoComment {get;set;}
 
