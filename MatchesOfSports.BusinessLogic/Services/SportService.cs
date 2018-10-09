@@ -26,7 +26,7 @@ namespace MatchesOfSports.BusinessLogic.Services
         public IEnumerable<Sport> GetAllSports()
         {   
             try{
-                return unitOfWork.SportRepository.GetAll();
+                return unitOfWork.SportRepository.Get();
             }catch(ArgumentNullException){
                 throw new InvalidOperationException("Could not get all sports - Data Base empty");
             }   
@@ -35,7 +35,7 @@ namespace MatchesOfSports.BusinessLogic.Services
         public Sport GetSportById(Guid id)
         {
             try{
-                return unitOfWork.SportRepository.Get(id);
+                return unitOfWork.SportRepository.GetById(id);
             }catch(ArgumentNullException){
                 throw new InvalidOperationException("Could not get all sports - Data Base empty");
             }
@@ -66,7 +66,7 @@ namespace MatchesOfSports.BusinessLogic.Services
 
         public bool ExistSport(Guid id)
         {
-            return unitOfWork.SportRepository.Get(id)!=null; 
+            return unitOfWork.SportRepository.GetById(id)!=null; 
         }
         
         public bool CreateSport(Sport newSport)
@@ -74,7 +74,7 @@ namespace MatchesOfSports.BusinessLogic.Services
             if(ExistSport(newSport.SportId)){
                 throw new InvalidOperationException("Could not create new sport - Sport  already exists");
             }else{
-                unitOfWork.SportRepository.Add(newSport);
+                unitOfWork.SportRepository.Insert(newSport);
                 unitOfWork.Save();
                 return true;
             }
