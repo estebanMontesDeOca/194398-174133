@@ -35,21 +35,21 @@ public class UnitOfWork : IUnitOfWork
     {
         get
         {
-            return sportRepository = sportRepository ?? new SportRepository(context);
+            return sportRepository = sportRepository ?? new GenericRepository<Sport>(context);
         }
     }
     public IRepositoryOf<Match> MatchRepository
     {
         get
         {
-            return matchRepository = matchRepository ?? new MatchRepository(context);
+            return matchRepository = matchRepository ?? new GenericRepository<Match>(context);
         }
     }
     public IRepositoryOf<User> UserRepository
     {
         get
         {
-            return userRepository = userRepository ?? new UserRepository(context);
+            return userRepository = userRepository ?? new GenericRepository<User>(context);
         }
     }
 
@@ -57,7 +57,7 @@ public class UnitOfWork : IUnitOfWork
     {
         get
         {
-            return teamRepository = teamRepository ?? new TeamRepository(context);
+            return teamRepository = teamRepository ?? new GenericRepository<Team>(context);
         }
     }
 

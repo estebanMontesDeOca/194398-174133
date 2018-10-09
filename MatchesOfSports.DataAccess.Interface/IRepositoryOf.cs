@@ -1,19 +1,32 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Expressions;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace MatchesOfSports.DataAccess.Interface
 {
-    public interface IRepositoryOf<T> : IDisposable where T : class
+    public interface IRepositoryOf<TEntity> : IDisposable where TEntity : class
     {
-        void Add(T entity);
+         IEnumerable<TEntity> Get(
+               Expression<Func<TEntity, bool>> filter = null,
+               Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null,
+               string includeProperties = "");
 
-        void Remove(T entity);
+        TEntity GetFirst(
+               Expression<Func<TEntity, bool>> filter = null,
+               Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null,
+               string includeProperties = "");
 
-        void Update(T entity);
+        void Insert(TEntity entity);
 
-        IEnumerable<T> GetAll();
+        void Delete(TEntity entity);
 
-        T Get(Guid id);
+        void Update(TEntity entity);
+ 
+
+        TEntity GetById(Guid id);
 
         void Save();
     }
