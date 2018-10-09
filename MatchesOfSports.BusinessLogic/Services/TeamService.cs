@@ -74,9 +74,9 @@ namespace MatchesOfSports.BusinessLogic.Services
                 Team toUpdate= GetTeamById(id);
                 toUpdate.TeamId = updatedTeam.TeamId;
                 toUpdate.Name   = updatedTeam.Name;
-                toUpdate.PhotoUrl = updatedTeam.PhotoUrl;                
-                oldSport.ListOfTeams= updatedSport.ListOfTeams;
-                oldSport.ListOfMatches = updatedSport.ListOfMatches;
+                toUpdate.PhotoUrl = updatedTeam.PhotoUrl;     
+                toUpdate.LisOfSports=updatedTeam.LisOfSports;   
+                toUpdate.ListOfMatches = updatedTeam.ListOfMatches;
                 toUpdate.WasDeleted = updatedTeam.WasDeleted;
                 unitOfWork.TeamRepository.Update(toUpdate);
                 unitOfWork.Save();

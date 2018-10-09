@@ -9,7 +9,6 @@ namespace MatchesOfSports.Domain
         public  string Name{get; set;}
         public string PhotoUrl{get;set;}
         public List<Sport> LisOfSports{get;set;}        
-        public List<Team> ListOfTeams{get;set;}
         public List<Match> ListOfMatches { get; set; }
         public bool WasDeleted{get;set;}
 
@@ -17,8 +16,7 @@ namespace MatchesOfSports.Domain
         public Team(){
             Name="noName";
             PhotoUrl="noPhoto";            
-            LisOfSports= new List<Sport>();
-            ListOfTeams=new List<Team>();
+            LisOfSports= new List<Sport>(); 
             ListOfMatches= new List<Match>();
             WasDeleted=true;
         }

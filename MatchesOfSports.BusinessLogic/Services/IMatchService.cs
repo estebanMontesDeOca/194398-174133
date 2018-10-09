@@ -8,6 +8,8 @@ namespace MatchesOfSports.BusinessLogic.Services
     {
         IEnumerable<Match> GetAllTheMatches();
         Match GetMatchById(Guid id);
+        string TeamsConfronted(Guid id);
+        IEnumerable<Comment> GetAllComments(Guid id);
         bool DeleteMatch(Guid Id);
         bool CreateMatch(Match newMatch);
         bool UpdateMatch(Guid id, Match updatedMatch);

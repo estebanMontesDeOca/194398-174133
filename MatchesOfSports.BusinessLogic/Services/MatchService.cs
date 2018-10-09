@@ -22,6 +22,18 @@ namespace MatchesOfSports.BusinessLogic.Services
             this.unitOfWork = unitOfWork;
         }
 
+        public IEnumerable<Comment> GetAllComments(Guid id)
+        {
+            Match match = GetMatchById(id);
+            return match.Comments;
+        }
+
+        public string TeamsConfronted(Guid id)
+        {
+            Match match = GetMatchById(id);
+            return match.TeamOne.Name +" "+match.TeamTwo.Name;
+        }
+
         public IEnumerable<Match> GetAllTheMatches()
         {
             try{
