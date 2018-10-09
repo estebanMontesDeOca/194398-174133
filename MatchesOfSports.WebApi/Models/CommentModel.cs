@@ -11,6 +11,7 @@ namespace MatchesOfSports.WebApi.Models
         public string TheComment { get; set; }
         public User UserWhoComment { get; set; }
 
+        public ComponentModel(){}
         public CommentModel(Comment entity)
         {
             SetModel(entity);

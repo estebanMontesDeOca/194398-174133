@@ -11,6 +11,8 @@ namespace MatchesOfSports.WebApi.Models
         public string Name { get; set; }
         public string PhotoUrl { get; set; }
 
+        public TeamModel(){}
+
         public TeamModel(Team entity)
         {
             SetModel(entity);

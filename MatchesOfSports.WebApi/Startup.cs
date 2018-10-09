@@ -10,7 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using MatchesOfSports.BusinessLogic.Interface;
+using MatchesOfSports.BusinessLogic.Service;
 using MatchesOfSports.DataAccess.Interface;
 
 namespace MatchesOfSports.WebApi
