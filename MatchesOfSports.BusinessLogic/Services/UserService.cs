@@ -42,12 +42,12 @@ namespace MatchesOfSports.BusinessLogic.Services
         {
             if (updatedUser == null)
             {
-                return false;
+                 throw new InvalidOperationException("Could not update user - Invalid data");
             }
 
             if (!updatedUser.IsValid())
             {
-                throw new InvalidOperationException("Could not update user - Invalid data");
+                throw new InvalidOperationException("Could not update user - Invalid User");
             }
             
             User userEntity = unitOfWork.UserRepository.Get(id);
@@ -100,12 +100,22 @@ namespace MatchesOfSports.BusinessLogic.Services
 
         public User GetUserByUserId(Guid id) 
         {
-            return unitOfWork.UserRepository.Get(id);
+           try{
+                return unitOfWork.UserRepository.Get(id);
+           } catch (ArgumentNullException)
+            {
+               throw new InvalidOperationException("Could not get user - User does not exist");
+            }
         }
 
          public IEnumerable<User> GetAllUsers()
          {
+            try{ 
              return unitOfWork.UserRepository.GetAll();
+            }catch(ArgumentNullException)
+            {
+                throw new InvalidOperationException("Could not get users- DB is empty");
+            }
          }
     }
 }
