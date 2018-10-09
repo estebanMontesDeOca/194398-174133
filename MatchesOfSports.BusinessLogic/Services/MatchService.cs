@@ -53,11 +53,15 @@ namespace MatchesOfSports.BusinessLogic.Services
 
         public bool IsItCorrectTheSport(Team team, Sport sport)
         {
-            bool IsTheSameSport = false;
-            foreach(B itemB in Sport.Lista)
+            bool isTheSameSport = false;
+            foreach(Sport oneSport in team.ListOfSports)
             {
-
-            }   
+                if(oneSport.Equals(IsTheSameSport))
+                {
+                    isTheSameSport = true;
+                }
+            } 
+            return isTheSameSport;  
         }
 
         public bool ValidMatch(Match theMatch)

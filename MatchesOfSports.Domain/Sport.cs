@@ -17,7 +17,26 @@ namespace MatchesOfSports.Domain
         public Sport(string aName,bool wasDeleted)
         {
             Name = aName;
-            ListOfTeams = Teams;
+            WasDeleted = wasDeleted;
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (obj == null)
+            {
+                return false;
+            }
+            Sport sport = obj as Sport;
+            if (sport == null)
+            {
+                return false;
+            }
+            return this.SportId.Equals(sport.SportId);
+        }
+
+        public override int GetHashCode()
+        {
+            return this.SportId.GetHashCode();
         }
 
         
