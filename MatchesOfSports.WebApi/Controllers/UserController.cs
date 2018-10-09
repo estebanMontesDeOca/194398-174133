@@ -49,7 +49,8 @@ namespace MatchesOfSports.WebApi.Controllers
             {
                 if (usersService.DeleteUserByUserName(id))
                 {
-                    return StatusCode(HttpStatusCode.NoContent);
+                    //Status No Content -> 204
+                    return StatusCode(0xCC);
                 }
                 return NotFound();
             }catch(InvalidOperationException ioex)
