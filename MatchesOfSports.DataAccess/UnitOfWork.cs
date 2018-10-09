@@ -26,7 +26,7 @@ public class UnitOfWork : IUnitOfWork
         get
         {
             if(commentRepository==null){
-                commentRepository = new CommentRepository(context);
+                commentRepository = new GenericRepository<Comment>(context);
             }
             return commentRepository;
         }

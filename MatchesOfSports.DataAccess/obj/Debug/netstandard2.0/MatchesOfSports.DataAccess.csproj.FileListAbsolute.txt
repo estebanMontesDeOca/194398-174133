@@ -7,3 +7,8 @@ c:\Users\Usuario\Desktop\194398-174133\MatchesOfSports.DataAccess\obj\Debug\nets
 c:\Users\Usuario\Desktop\194398-174133\MatchesOfSports.DataAccess\obj\Debug\netstandard2.0\MatchesOfSports.DataAccess.AssemblyInfo.cs
 c:\Users\Usuario\Desktop\194398-174133\MatchesOfSports.DataAccess\obj\Debug\netstandard2.0\MatchesOfSports.DataAccess.dll
 c:\Users\Usuario\Desktop\194398-174133\MatchesOfSports.DataAccess\obj\Debug\netstandard2.0\MatchesOfSports.DataAccess.pdb
+C:\Users\Usuario\Desktop\194398-174133\MatchesOfSports.DataAccess\bin\Debug\netstandard2.0\MatchesOfSports.DataAccess.Interface.dll
+C:\Users\Usuario\Desktop\194398-174133\MatchesOfSports.DataAccess\bin\Debug\netstandard2.0\MatchesOfSports.Domain.dll
+C:\Users\Usuario\Desktop\194398-174133\MatchesOfSports.DataAccess\bin\Debug\netstandard2.0\MatchesOfSports.DataAccess.Interface.pdb
+C:\Users\Usuario\Desktop\194398-174133\MatchesOfSports.DataAccess\bin\Debug\netstandard2.0\MatchesOfSports.Domain.pdb
+C:\Users\Usuario\Desktop\194398-174133\MatchesOfSports.DataAccess\obj\Debug\netstandard2.0\MatchesOfSports.DataAccess.csproj.CopyComplete
