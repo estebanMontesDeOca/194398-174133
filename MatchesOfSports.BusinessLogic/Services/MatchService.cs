@@ -25,7 +25,7 @@ namespace MatchesOfSports.BusinessLogic.Services
         public IEnumerable<Match> GetAllTheMatches()
         {
             try{
-                return unitOfWork.MatchRepository.GetAll();
+                return unitOfWork.MatchRepository.Get();
             }catch(ArgumentNullException){
                 throw new InvalidOperationException("Could not get all matches - Data Base empty");
             } 
@@ -33,7 +33,7 @@ namespace MatchesOfSports.BusinessLogic.Services
         public Match GetMatchById(Guid id)
         {
             try{
-                return unitOfWork.MatchRepository.Get(id);
+                return unitOfWork.MatchRepository.GetById(id);
             }catch(ArgumentNullException){
                 throw new InvalidOperationException("Could not get match - Match does not exist");
             }
@@ -53,14 +53,14 @@ namespace MatchesOfSports.BusinessLogic.Services
 
         public bool ExistMatch(Guid id)
         {
-            return unitOfWork.MatchRepository.Get(id) != null;
+            return unitOfWork.MatchRepository.GetById(id) != null;
         }
         public bool CreateMatch(Match newMatch)
         {
             if(ExistMatch(newMatch.MatchId)){
                 throw new InvalidOperationException("Could not create new match - Match  already exists");
             }else{
-                unitOfWork.MatchRepository.Add(newMatch);
+                unitOfWork.MatchRepository.Insert(newMatch);
                 unitOfWork.Save();
                 return true;
             }
