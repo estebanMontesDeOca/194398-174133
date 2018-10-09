@@ -55,7 +55,7 @@ namespace MatchesOfSports.BusinessLogic.Services
         {
             try{   
                 Sport toDelete = this.GetSportById(id); 
-                toDelete.WasDeletd = true;
+                toDelete.WasDeleted = true;
                 UpdateSport(id,toDelete);
                 return true;
             }catch(ArgumentNullException){
