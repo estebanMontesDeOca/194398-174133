@@ -1,13 +1,14 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using MatchesOfSports.Domain;
 
 namespace MatchesOfSports.WebApi.Models
 {
-    public class CommentModel : Model<Comment, CommentModel>
+    public class UserModel : Model<User, UserModel>
     {
-        public Guid   UserId {get;set;}
+        //public Guid   UserId {get;set;}
         public string Name {get; set;}  
         public string Surname{get;set;}
         public string UserName{get;set;}
@@ -18,23 +19,37 @@ namespace MatchesOfSports.WebApi.Models
         public List<Comment> ListOfComments {get;set;}
         public List<Team>    ListOfFavouriteTeams {get;set;}
         
-        public CommentModel(Comment entity)
+        public UserModel(User entity)
         {
             SetModel(entity);
         }
+         public UserModel(){}
 
-        public override Comment ToEntity() => new Comment()
+        public override User ToEntity() => new User()
         {
-            CommentId = this.CommentId,
-            TheComment = this.TheComment,
-            UserWhoComment = this.UserWhoComment,
+            Name=this.Name, 
+            Surname =this.Surname,
+            UserName = this.UserName,
+            Password = this.Password,
+            Email = this.Email,
+            WasDeleted= this.WasDeleted,
+            UserRole =this.UserRole,    
+            ListOfComments = this.ListOfComments,
+            ListOfFavouriteTeams = this.ListOfFavouriteTeams,
         };
+ 
 
-        protected override CommentModel SetModel(Comment entity)
+        protected override UserModel  SetModel (User entity)
         {
-            CommentId = entity.CommentId;
-            TheComment = entity.TheComment;
-            UserWhoComment = entity.UserWhoComment;
+            Name=entity.Name; 
+            Surname =entity.Surname;
+            UserName =entity.UserName;
+            Password = entity.Password;
+            Email = entity.Email;
+            WasDeleted= entity.WasDeleted;
+            UserRole =entity.UserRole;  
+            ListOfComments = entity.ListOfComments;
+            ListOfFavouriteTeams = entity.ListOfFavouriteTeams;
             return this;
         }
 
