@@ -1,14 +1,16 @@
 using System;
 using System.Collections.Generic;
 
+
 namespace MatchesOfSports.Domain
 {
+    
     public class Match
     {
         public Guid  MatchId  {get;set;}
         public DateTime DateAndTime {get; set;}
-        public Sport TheSport {get;set;}
-        public Team TeamOne { get; set; }
+        public Sport TheSport {get;set;}         
+        public Team TeamOne { get; set; }         
         public Team TeamTwo { get; set; }
         public List<Comment> Comments {get;set;}
         public Sport KindOfSport {get;set;}
