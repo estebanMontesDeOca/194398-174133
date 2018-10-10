@@ -19,9 +19,9 @@ namespace MatchesOfSports.WebApi.Controllers
         }
 
         [HttpGet]
-        public ActionResult<IEnumerable<Team>> GetAllTeams()
+        public IActionResult GetAllTeams()
         {
-            IEnumerable<Team> allTeams =TeamModel.ToModel(teamService.GetAllTeams());
+            IEnumerable<Team> allTeams =teamService.GetAllTeams();
             if (allTeams == null) 
             {
                 return NotFound();

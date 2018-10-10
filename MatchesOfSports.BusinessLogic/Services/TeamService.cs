@@ -126,6 +126,30 @@ namespace MatchesOfSports.BusinessLogic.Services
                 throw new InvalidOperationException("Could not get the team - Team does not exist"); 
             }
         }
+
+        public IEnumerable<Match> MatchesOfaTeam(Guid id)
+        {
+             try{    
+                Team  theTeam = unitOfWork.TeamRepository.GetById(id);
+                List<Match> listOfMatches = theTeam.ListOfMatches;
+                List<Match> listToReturn  = new List<Match>();
+                if(!theTeam.WasDeleted){
+                   foreach(Match match in listOfMatches)
+                   {
+                       if(!match.WasDeleted)
+                       {
+                           listToReturn.Add(match);
+                       }
+                   }
+                   return listToReturn;
+                }else{
+                     throw new InvalidOperationException("Could not get the team - Team was deleted"); 
+                }
+            }catch(ArgumentNullException)
+            {
+                throw new InvalidOperationException("Could not get the team - Team does not exist"); 
+            }
+        }
         
     }
 }
