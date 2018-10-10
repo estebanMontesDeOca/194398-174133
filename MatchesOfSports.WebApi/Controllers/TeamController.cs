@@ -31,12 +31,14 @@ namespace MatchesOfSports.WebApi.Controllers
             }
             return Ok(TeamModel.ToModel(team));
         }
+
+      
 /* 
 private bool disposedValue = false;
      protected override void Dispose(bool disposing) 
         {
             if (!disposedValue)
-            {
+            {S
                 if (disposing)
                 {
                     teamService.Dispose();

@@ -60,6 +60,7 @@ namespace MatchesOfSports.WebApi.Controllers
             
         }
 
+        [ProtectFilter("Admin")]
         [HttpPost]
         public IActionResult Post([FromBody]User model)
         {
