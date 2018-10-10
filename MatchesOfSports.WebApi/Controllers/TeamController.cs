@@ -51,11 +51,6 @@ namespace MatchesOfSports.WebApi.Controllers
                 return StatusCode(500, "Internal server error");
             }
         }
-/* 
-        [HttpGet("{id}/teamDetails")]
-        public IActionResult GetTeamDetailed(){
-
-        }*/
 
         [HttpPut("{id}")] 
         [ProtectFilter("Admin")] 
