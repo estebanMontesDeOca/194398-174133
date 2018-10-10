@@ -18,13 +18,13 @@ namespace MatchesOfSports.WebApi.Controllers
         }
 
         [HttpGet]
-        public IActionResult Get()
+        public IActionResult GetAllTeams()
         {
             return Ok(TeamModel.ToModel(teamService.GetAllTeams()));
         }
 
-        [HttpGet("{id}", Name = "GetTeam")]
-        public IActionResult Get(Guid id)
+        [HttpGet("{id}", Name = "GetTeamById")]
+        public IActionResult GetTeamById(Guid id)
         {
             var team = teamService.GetTeamById(id);
             if (team == null) 
@@ -36,7 +36,7 @@ namespace MatchesOfSports.WebApi.Controllers
 
         [ProtectFilter("Admin")]
         [HttpPost]
-        public IActionResult Post([FromBody]Team model)
+        public IActionResult CreateTeam([FromBody]Team model)
         {
             try {
                 var team = teamService.Create(model);
@@ -45,25 +45,27 @@ namespace MatchesOfSports.WebApi.Controllers
                 return BadRequest(e.Message);
             }
         }
-      
-/* 
-private bool disposedValue = false;
-     protected override void Dispose(bool disposing) 
+
+        [HttpPut("{id}")] 
+        [ProtectFilter("Admin")] 
+        public IActionResult UpdateTeam(Guid id, [FromBody]Team updatedTeam)
         {
-            if (!disposedValue)
-            {S
-                if (disposing)
+            try
+            {
+                if (teamService.UpdateTeam(id, updatedTeam))
                 {
-                    teamService.Dispose();
+                    //Status No Content -> 204
+                    return StatusCode(0xCC);
                 }
-                disposedValue = true;
+                else
+                {
+                    return NotFound();
+                }
+            }
+            catch (InvalidOperationException ioe)
+            {
+                return BadRequest(ioe.Message);
             }
         }
-         public void Dispose()
-        {
-            Dispose(true);
-            GC.SuppressFinalize(this);
-        } 
-        */
     }
 }
