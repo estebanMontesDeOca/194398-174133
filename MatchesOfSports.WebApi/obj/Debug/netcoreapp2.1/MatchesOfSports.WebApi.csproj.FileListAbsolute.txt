@@ -19,3 +19,5 @@ c:\Users\Usuario\Desktop\194398-174133\MatchesOfSports.WebApi\obj\Debug\netcorea
 c:\Users\Usuario\Desktop\194398-174133\MatchesOfSports.WebApi\obj\Debug\netcoreapp2.1\MatchesOfSports.WebApi.csproj.CopyComplete
 c:\Users\Usuario\Desktop\194398-174133\MatchesOfSports.WebApi\obj\Debug\netcoreapp2.1\MatchesOfSports.WebApi.dll
 c:\Users\Usuario\Desktop\194398-174133\MatchesOfSports.WebApi\obj\Debug\netcoreapp2.1\MatchesOfSports.WebApi.pdb
+C:\Users\Usuario\Desktop\194398-174133\MatchesOfSports.WebApi\bin\Debug\netcoreapp2.1\MatchesOfSports.DataAccess.Interface.dll
+C:\Users\Usuario\Desktop\194398-174133\MatchesOfSports.WebApi\bin\Debug\netcoreapp2.1\MatchesOfSports.DataAccess.Interface.pdb

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -11,7 +12,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using MatchesOfSports.BusinessLogic.Services;
-using MatchesOfSports.DataAccess.Interface;
+using MatchesOfSports.DataAccess;
+using MatchesOfSports.Domain;
 
 namespace MatchesOfSports.WebApi
 {
@@ -20,7 +22,7 @@ namespace MatchesOfSports.WebApi
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
-        }
+        } 
 
         public IConfiguration Configuration { get; }
 
@@ -30,16 +32,16 @@ namespace MatchesOfSports.WebApi
             services.AddMvc();
         
             services.AddDbContext<DbContext, MatchesOfSportsContext>(o => o.UseSqlServer(Configuration.GetConnectionString("MatchesOfSportsDB")));
-            services.AddScoped<IUserService, UserService>();
-            services.AddScoped<IRepositoryOf<User>, UserRepository>();
             services.AddScoped<IUsersService, UserService>();
-            services.AddScoped<IRepositoryOf<Team>, TeamRepository>();
+            //services.AddScoped<IRepositoryOf<User>, UserRepository>();
+            services.AddScoped<IUsersService, UserService>();
+            //services.AddScoped<IRepositoryOf<Team>, TeamRepository>();
             services.AddScoped<ITeamService, TeamService>();
-            services.AddScoped<IRepositoryOf<Sport>, SportRepository>();
+            //services.AddScoped<IRepositoryOf<Sport>, SportRepository>();
             services.AddScoped<ISportService, SportService>();
-            services.AddScoped<IRepositoryOf<Match>, MatchRepository>();
-            services.AddScoped<IMatcheService, MatchService>();
-            services.AddScoped<IRepositoryOf<Comment>, CommentRepository>(); 
+            //services.AddScoped<IRepositoryOf<Match>, MatchRepository>();
+            services.AddScoped<IMatchService, MatchService>();
+            //services.AddScoped<IRepositoryOf<Comment>, CommentRepository>(); 
             services.AddScoped<ICommentService, CommentService>();
         }
 
