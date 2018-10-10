@@ -40,6 +40,17 @@ namespace MatchesOfSports.WebApi.Controllers
             return Ok(TeamModel.ToModel(team));
         }
 
+        [HttpGet("{id}", Name = "GetSportsOfaTeam")]
+        public IActionResult GetSportsOfaTeam(Guid id)
+        {
+            IEnumerable<Sport> team = teamService.SportsOfATeam(id);
+            if (team == null) 
+            {
+                return NotFound();
+            }
+            return Ok(SportModel.ToModel(team));
+        }
+
         [ProtectFilter("Admin")]
         [HttpPost]
         public IActionResult CreateTeam([FromBody]Team model)
