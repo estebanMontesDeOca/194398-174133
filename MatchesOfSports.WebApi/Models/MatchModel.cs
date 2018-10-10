@@ -11,8 +11,8 @@ namespace MatchesOfSports.WebApi.Models
         public Guid  MatchId  {get;set;}
         public DateTime DateAndTime {get; set;}
         public Sport TheSport {get;set;}       
-        public Team TeamOne { get; set; }     
-        public Team TeamTwo { get; set; }
+        public Guid TeamOne { get; set; }     
+        public Guid TeamTwo { get; set; }
         public List<Comment> Comments {get;set;}
         public Sport KindOfSport {get;set;}
         public bool WasDeleted {get;set;}

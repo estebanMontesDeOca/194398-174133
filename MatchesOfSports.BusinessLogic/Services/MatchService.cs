@@ -63,7 +63,9 @@ namespace MatchesOfSports.BusinessLogic.Services
         public string TeamsConfronted(Guid id)
         {
             Match match = GetMatchById(id);
-            return match.TeamOne.Name +" "+match.TeamTwo.Name;
+            Team  teamOne = unitOfWork.TeamRepository.GetById(match.TeamOne);
+            Team  teamTwo = unitOfWork.TeamRepository.GetById(match.TeamTwo);
+            return teamOne.Name +" "+teamTwo.Name;
         }
 
         public IEnumerable<Match> GetAllTheMatches()
@@ -117,9 +119,10 @@ namespace MatchesOfSports.BusinessLogic.Services
             }
             return matchesBySport;
         }
-        public bool IsItCorrectTheSport(Team team, Sport sport)
+        public bool IsItCorrectTheSport(Guid guidTeam, Sport sport)
         {
             bool isTheSameSport = false;
+            Team team = unitOfWork.TeamRepository.GetById(guidTeam);
             foreach(Sport oneSport in team.LisOfSports)
             {
                 if(IsCorrectTheSpor(oneSport,sport))
@@ -146,9 +149,10 @@ namespace MatchesOfSports.BusinessLogic.Services
             return isValid;
         }
 
-        public bool HaveAMatch(Team team, DateTime matchDate)
+        public bool HaveAMatch(Guid guidTeam, DateTime matchDate)
         {
             bool haveAMatch = false;
+            Team team = unitOfWork.TeamRepository.GetById(guidTeam);
             foreach(Match oneMatch in team.ListOfMatches)
             {
                 int result = DateTime.Compare(oneMatch.DateAndTime,matchDate);  

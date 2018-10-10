@@ -10,8 +10,8 @@ namespace MatchesOfSports.Domain
         public Guid  MatchId  {get;set;}
         public DateTime DateAndTime {get; set;}
         public Sport TheSport {get;set;}         
-        public Team TeamOne { get; set; }         
-        public Team TeamTwo { get; set; }
+        public Guid TeamOne { get; set; }         
+        public Guid TeamTwo { get; set; }
         public List<Comment> Comments {get;set;}
         public Sport KindOfSport {get;set;}
         public bool WasDeleted {get;set;}
@@ -19,8 +19,8 @@ namespace MatchesOfSports.Domain
         
         public Match(){
             DateAndTime =DateTime.Now;
-            TeamOne = new Team();
-            TeamTwo = new Team();
+            TeamOne = new Guid();
+            TeamTwo = new Guid();
             Comments = new List<Comment>();
             KindOfSport = new Sport();
             WasDeleted = false;
