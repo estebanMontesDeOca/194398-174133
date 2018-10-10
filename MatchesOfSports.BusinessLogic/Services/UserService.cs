@@ -111,7 +111,16 @@ namespace MatchesOfSports.BusinessLogic.Services
          public IEnumerable<User> GetAllUsers()
          {
             try{ 
-             return unitOfWork.UserRepository.Get();
+             IEnumerable<User> getUsers = unitOfWork.UserRepository.Get();
+             List<User> getUsersNoDeleted = new List<User>();
+             foreach (User user in getUsers)
+             {
+                 if(!user.WasDeleted)
+                 {
+                     getUsersNoDeleted.Add(user);
+                 }
+             }
+             return getUsersNoDeleted;
             }catch(ArgumentNullException)
             {
                 throw new InvalidOperationException("Could not get users- DB is empty");

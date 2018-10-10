@@ -21,11 +21,21 @@ namespace MatchesOfSports.BusinessLogic.Services
             }
             this.unitOfWork = unitOfWork;
         }
-
+        public bool UserDeleted(User user){
+            return user.WasDeleted;
+        }
         public IEnumerable<Comment> GetAllComments(Guid id)
         {
             Match match = GetMatchById(id);
-            return match.Comments;
+            List<Comment> GetAllCommentsUserNoDeleted = new List<Comment>();
+            foreach(Comment comment in match.Comments)
+            {
+                if(!UserDeleted(comment.UserWhoComment))
+                {
+                    GetAllCommentsUserNoDeleted.Add(comment);
+                }
+            }
+            return GetAllCommentsUserNoDeleted;
         }
         public bool IsMatchHaveTheTeam(Match match,Team team)
         {
