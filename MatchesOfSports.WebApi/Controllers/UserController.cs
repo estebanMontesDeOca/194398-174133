@@ -33,7 +33,7 @@ namespace MatchesOfSports.WebApi.Controllers
         public IActionResult GetUserById(Guid id)
         {
             User userToRetrieve = usersService.GetUserByUserId(id);
-            if (userToRetrieve == null)
+            if (userToRetrieve == null || userToRetrieve.WasDeleted)
             {
                 return NotFound();
             }

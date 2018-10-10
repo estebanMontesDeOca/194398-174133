@@ -77,19 +77,22 @@ namespace MatchesOfSports.BusinessLogic.Services
         public bool DeleteUserByUserName(Guid id)
         {
             try
-            {
+            {   
                 User user = GetUserByUserId(id);
-                User updatedUser = new User();
-                user.UserId      = updatedUser.UserId;
-                user.Name        = updatedUser.Name;
-                user.Surname    = updatedUser.Surname;
-                user.UserName    = updatedUser.UserName;
-                user.Password   = updatedUser.Password;
-                user.Email       = updatedUser.Email;
-                updatedUser.WasDeleted = true;
-                user.UserRole = updatedUser.UserRole;
-                UpdateUser(user.UserId ,updatedUser);
-                return true;
+                if (!user.WasDeleted){
+                    User updatedUser = new User();
+                    user.UserId      = updatedUser.UserId;
+                    user.Name        = updatedUser.Name;
+                    user.Surname    = updatedUser.Surname;
+                    user.UserName    = updatedUser.UserName;
+                    user.Password   = updatedUser.Password;
+                    user.Email       = updatedUser.Email;
+                    updatedUser.WasDeleted = true;
+                    user.UserRole = updatedUser.UserRole;
+                    UpdateUser(user.UserId ,updatedUser);
+                    return true;
+                }
+                return false;
             }
             catch (ArgumentNullException)
             {
