@@ -86,6 +86,46 @@ namespace MatchesOfSports.BusinessLogic.Services
                 throw new InvalidOperationException("Could not delet the team - Team does not exist"); 
             }
         }
+
+        public IEnumerable<Sport> SportsOfATeam(Guid id)
+        {
+            try{    
+                Team theTeam = GetTeamById(id);
+                if(!theTeam.WasDeleted){
+                    return theTeam.LisOfSports;
+                }else{
+                     throw new InvalidOperationException("Could not get the team - Team was deleted"); 
+                }
+            }catch(ArgumentNullException)
+            {
+                throw new InvalidOperationException("Could not get the team - Team does not exist"); 
+            }
+        }
+
+        public IEnumerable<Match> MatchesOfaTeamBySportId(Guid idSport,Guid idTeam)
+        {
+             try{    
+                Sport theSport = unitOfWork.SportRepository.GetById(idSport);
+                Team  theTeam = unitOfWork.TeamRepository.GetById(idTeam);
+                List<Match> listOfMatches = theTeam.ListOfMatches;
+                List<Match> listToReturn  = new List<Match>();
+                if(!theTeam.WasDeleted){
+                   foreach(Match match in listOfMatches)
+                   {
+                       if(!match.WasDeleted && theSport.Equals(match.KindOfSport))
+                       {
+                           listToReturn.Add(match);
+                       }
+                   }
+                   return listToReturn;
+                }else{
+                     throw new InvalidOperationException("Could not get the team - Team was deleted"); 
+                }
+            }catch(ArgumentNullException)
+            {
+                throw new InvalidOperationException("Could not get the team - Team does not exist"); 
+            }
+        }
         
     }
 }
