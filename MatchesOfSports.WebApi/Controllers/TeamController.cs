@@ -2,6 +2,8 @@ using System;
 using Microsoft.AspNetCore.Mvc;
 using MatchesOfSports.BusinessLogic.Services;
 using MatchesOfSports.WebApi.Models;
+using MatchesOfSports.Domain;
+using MatchesOfSports.WebApi.Filters;
 
 namespace MatchesOfSports.WebApi.Controllers
 {
@@ -10,7 +12,7 @@ namespace MatchesOfSports.WebApi.Controllers
     {
         private ITeamService teamService;
 
-        public TeamController(ITeamService teamService) : base()
+        public TeamController(ITeamService teamService)
         {
             this.teamService = teamService;
         }
@@ -32,6 +34,17 @@ namespace MatchesOfSports.WebApi.Controllers
             return Ok(TeamModel.ToModel(team));
         }
 
+        [ProtectFilter("Admin")]
+        [HttpPost]
+        public IActionResult Post([FromBody]Team model)
+        {
+            try {
+                var team = teamService.Create(model);
+                return CreatedAtRoute("Get", model);
+            } catch(ArgumentException e) {
+                return BadRequest(e.Message);
+            }
+        }
       
 /* 
 private bool disposedValue = false;
