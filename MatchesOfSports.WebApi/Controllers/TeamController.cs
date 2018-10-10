@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic; 
 using Microsoft.AspNetCore.Mvc;
 using MatchesOfSports.BusinessLogic.Services;
 using MatchesOfSports.WebApi.Models;
@@ -7,7 +8,7 @@ using MatchesOfSports.WebApi.Filters;
 
 namespace MatchesOfSports.WebApi.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/team")]
     public class TeamController : Controller
     {
         private ITeamService teamService;
@@ -18,7 +19,7 @@ namespace MatchesOfSports.WebApi.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetAllTeams()
+        public ActionResult<IEnumerable<Team>> GetAllTeams()
         {
             return Ok(TeamModel.ToModel(teamService.GetAllTeams()));
         }
@@ -41,10 +42,15 @@ namespace MatchesOfSports.WebApi.Controllers
             try {
                 var team = teamService.Create(model);
                 return CreatedAtRoute("Get", model);
-            } catch(ArgumentException e) {
-                return BadRequest(e.Message);
+            } catch(ArgumentException) {
+                return StatusCode(500, "Internal server error");
             }
         }
+/* 
+        [HttpGet("{id}/teamDetails")]
+        public IActionResult GetTeamDetailed(){
+
+        }*/
 
         [HttpPut("{id}")] 
         [ProtectFilter("Admin")] 
@@ -62,9 +68,27 @@ namespace MatchesOfSports.WebApi.Controllers
                     return NotFound();
                 }
             }
-            catch (InvalidOperationException ioe)
+            catch (InvalidOperationException)
             {
-                return BadRequest(ioe.Message);
+               return StatusCode(500, "Internal server error");
+            }
+        }
+
+        [HttpDelete("{id}")]
+        [ProtectFilter("Admin")] 
+        public IActionResult DeleteTeam(Guid id)
+        {
+              try
+            {
+                if (teamService.DeleteTeamByName(id))
+                {
+                    //Status No Content -> 204
+                    return StatusCode(0xCC);;
+                }
+                return NotFound();
+            }catch(InvalidOperationException)
+            {
+               return StatusCode(500, "Internal server error");
             }
         }
     }
