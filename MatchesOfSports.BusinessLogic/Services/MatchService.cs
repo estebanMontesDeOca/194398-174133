@@ -63,12 +63,34 @@ namespace MatchesOfSports.BusinessLogic.Services
             }
         }
 
+        public bool IsCorrectTheSpor(Sport sportOne, Sport sportTwo){
+            bool isTheSameSport = false;
+            if(sportOne.Equals(sportTwo))
+                {
+                    isTheSameSport = true;
+                }
+            return isTheSameSport;
+        }
+        public IEnumerable<Match> GetAllTheMatchesBySportId(Guid id)
+        {
+            Sport sport = unitOfWork.SportRepository.GetById(id);
+            List<Match> matchesBySport = new List<Match>();
+            IEnumerable<Match> allTheMatches  = this.GetAllTheMatches();
+            foreach(Match match in allTheMatches)
+            {
+                if(IsCorrectTheSpor(match.TheSport,sport))
+                {
+                    matchesBySport.Add(match);
+                }
+            }
+            return matchesBySport;
+        }
         public bool IsItCorrectTheSport(Team team, Sport sport)
         {
             bool isTheSameSport = false;
             foreach(Sport oneSport in team.LisOfSports)
             {
-                if(oneSport.Equals(sport))
+                if(IsCorrectTheSpor(oneSport,sport))
                 {
                     isTheSameSport = true;
                 }
@@ -123,8 +145,6 @@ namespace MatchesOfSports.BusinessLogic.Services
         public bool UpdateMatch(Guid id, Match updatedMatch)
         {
             try{
-                if(ValidMatch(updatedMatch))
-                {
                     Match oldMatch =GetMatchById(id);
                     oldMatch.MatchId = updatedMatch.MatchId;
                     oldMatch.DateAndTime = updatedMatch.DateAndTime;
@@ -136,10 +156,7 @@ namespace MatchesOfSports.BusinessLogic.Services
                     unitOfWork.MatchRepository.Update(oldMatch);
                     unitOfWork.Save();
                     return true;
-                }else
-                {
-                    return false;
-                }
+                
             }catch(ArgumentNullException)
             {
                 throw new InvalidOperationException("Could not update match - Match  does not exists");

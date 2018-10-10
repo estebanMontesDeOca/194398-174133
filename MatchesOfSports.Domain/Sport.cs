@@ -6,8 +6,8 @@ namespace MatchesOfSports.Domain
     public class Sport
     {
         public Guid SportId{get;set;}
-        public string Name{get; set;}  
-        public bool WasDeleted {get;set;}
+        public string Name{get; set;}
+ public bool WasDeleted {get;set;}
 
         
         public Sport(){
