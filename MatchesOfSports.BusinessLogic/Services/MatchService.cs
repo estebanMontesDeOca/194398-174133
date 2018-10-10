@@ -27,7 +27,29 @@ namespace MatchesOfSports.BusinessLogic.Services
             Match match = GetMatchById(id);
             return match.Comments;
         }
-
+        public bool IsMatchHaveTheTeam(Match match,Team team)
+        {
+            bool haveTheTeam = false;
+            if(team.Equals(match.TeamOne) || team.Equals(match.TeamTwo))
+            {
+                haveTheTeam = true;
+            }
+            return haveTheTeam;
+        }
+        public IEnumerable<Match> GetAllTheMatchesByTeam(Guid id)
+        {
+                Team team = unitOfWork.TeamRepository.GetById(id);
+                List<Match> allTheMatchesOfaTeam = new List<Match>();
+                IEnumerable<Match> allTheMatches = this.GetAllTheMatches();
+                foreach(Match match in allTheMatches)
+                {
+                    if(IsMatchHaveTheTeam(match,team))
+                    {   
+                        allTheMatchesOfaTeam.Add(match);
+                    }
+                }
+                return allTheMatchesOfaTeam;
+        }
         public string TeamsConfronted(Guid id)
         {
             Match match = GetMatchById(id);
