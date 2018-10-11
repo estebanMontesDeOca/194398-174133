@@ -7,17 +7,20 @@ namespace MatchesOfSports.Domain
     {
         public Guid SportId{get;set;}
         public string Name{get; set;}
+        public List<Team> ListOfTeams{get;set;}
  public bool WasDeleted {get;set;}
 
         
         public Sport(){
             Name="noName";
+            ListOfTeams=new List<Team>();
             WasDeleted = false;
         }
-        public Sport(string aName,bool wasDeleted)
+        public Sport(string aName,bool wasDeleted,List<Team> ListOfTeams)
         {
-            Name = aName;
-            WasDeleted = wasDeleted;
+            this.Name = aName;
+            this.WasDeleted = wasDeleted;
+            this.ListOfTeams=ListOfTeams;
         }
 
         public override bool Equals(object obj)

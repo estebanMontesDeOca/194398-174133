@@ -9,6 +9,7 @@ namespace MatchesOfSports.WebApi.Models
     { 
         public Guid SportId{get;set;}
         public string Name{get; set;}
+        public List<Team> ListOfTeams{get;set;}
 
         public SportModel(){}
 
@@ -21,12 +22,14 @@ namespace MatchesOfSports.WebApi.Models
         {
             SportId = this.SportId,
             Name = this.Name, 
+            ListOfTeams=this.ListOfTeams,
         };
 
         protected override SportModel SetModel(Sport entity)
         {
             SportId = entity.SportId;
             Name = entity.Name; 
+            ListOfTeams=entity.ListOfTeams;
             return this;
         }
 

@@ -59,7 +59,7 @@ namespace MatchesOfSports.BusinessLogic.Services
 
         public IEnumerable<Match> DoMatches(Sport sport)
         {
-            List<Team> listOfTeams = sport.LisOfTeams;
+            List<Team> listOfTeams = sport.ListOfTeams;
             List<Match> listMatchesToReturn = new List<Match>();
             foreach(Team teamOne in listOfTeams)
             {
