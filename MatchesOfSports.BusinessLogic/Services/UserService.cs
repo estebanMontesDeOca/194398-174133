@@ -126,7 +126,8 @@ namespace MatchesOfSports.BusinessLogic.Services
              return getUsersNoDeleted;
             }catch(ArgumentNullException)
             {
-                throw new InvalidOperationException("Could not get users- DB is empty");
+                return new List<User>();
+                //throw new InvalidOperationException("Could not get users- DB is empty");
             }
          }
     }

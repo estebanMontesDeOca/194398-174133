@@ -60,18 +60,7 @@ namespace MatchesOfSports.WebApi.Controllers
             }
             return Ok(MatchModel.ToModel(team));   
         }
-
-        [HttpGet("{idTeam/idSport}",Name = "GetMatchesOfaTeamBySportId")]
-        public IActionResult GetMatchesOfaTeamBySportId(Guid idSport,Guid idTeam)
-        {
-         IEnumerable<Match> team = teamService.MatchesOfaTeamBySportId(idSport,idTeam);
-            if (team == null) 
-            {
-                return NotFound();
-            }
-            return Ok(MatchModel.ToModel(team));   
-        }
-
+   
         [ProtectFilter("Admin")]
         [HttpPost]
         public IActionResult CreateTeam([FromBody]Team model)

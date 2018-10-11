@@ -24,7 +24,7 @@ namespace MatchesOfSports.WebApi.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            return Ok(usersService.GetAllUsers());
+             return Ok(usersService.GetAllUsers()); 
         }
 
         [ProtectFilter("Admin")]

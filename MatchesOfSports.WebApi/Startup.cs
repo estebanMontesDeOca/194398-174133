@@ -48,7 +48,7 @@ namespace MatchesOfSports.WebApi
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            if (env.IsDevelopment())
+           /*  if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
@@ -58,7 +58,17 @@ namespace MatchesOfSports.WebApi
             }
 
             app.UseHttpsRedirection();
-            app.UseMvc();
+            app.UseMvc();*/
+               if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
+            app.UseMvc(routes => {
+                routes.MapRoute(
+                    name: "Default",
+                    template: "api/{controller}/{id?}"
+                );
+});
         }
     }
 }
