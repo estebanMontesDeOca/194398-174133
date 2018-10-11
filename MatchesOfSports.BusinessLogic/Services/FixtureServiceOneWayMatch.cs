@@ -57,7 +57,7 @@ namespace MatchesOfSports.BusinessLogic.Services
             return toReturn;
         }
 
-        public IEnumerable<Match> DoMatchs(Sport sport)
+        public IEnumerable<Match> DoMatches(Sport sport)
         {
             List<Team> listOfTeams = sport.LisOfTeams;
             List<Match> listMatchesToReturn = new List<Match>();
