@@ -11,9 +11,9 @@ namespace MatchesOfSports.BusinessLogic.Services
 {
     public class CommentService : ICommentService
     {
-        private IUnitOfWork unitOfWork;
+        private  UnitOfWork unitOfWork;
 
-        public CommentService(IUnitOfWork unitOfWork)
+        public CommentService( UnitOfWork unitOfWork)
         {
             if (unitOfWork == null)
             {

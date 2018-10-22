@@ -11,9 +11,9 @@ namespace MatchesOfSports.BusinessLogic.Services
 {
     public class MatchService : IMatchService
     {
-        private IUnitOfWork unitOfWork;
+        private UnitOfWork unitOfWork;
 
-        public MatchService(IUnitOfWork unitOfWork)
+        public MatchService(UnitOfWork unitOfWork)
         {
             if (unitOfWork == null)
             {
