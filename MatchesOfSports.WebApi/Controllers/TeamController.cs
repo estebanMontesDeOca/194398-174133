@@ -9,51 +9,63 @@ using MatchesOfSports.WebApi.Filters;
 namespace MatchesOfSports.WebApi.Controllers
 {
     [Route("api/team")]
-    public class TeamController : Controller
+    [ApiController]
+    public class TeamController : ControllerBase
     {
-        private ITeamService teamService;
+        private TeamService TeamService { get; set; }
 
-        public TeamController(ITeamService teamService)
+        public TeamController(TeamService teamService, UnitOfWork unitOfWork)
         {
-            this.teamService = teamService;
+            TeamService = teamService;
+            teamService.UnitOfWork = unitOfWork;
         }
 
         [HttpGet]
         public IActionResult GetAllTeams()
         {
-            IEnumerable<Team> allTeams =teamService.GetAllTeams();
-            if (allTeams == null) 
+            try
             {
-                return NotFound();
+                IEnumerable<Team> allTeams = TeamService.GetAllTeams();
+                if (allTeams == null)
+                {
+                    return NotFound();
+                }
+                return Ok(TeamModel.ToModel(allTeams));
             }
-            return Ok(TeamModel.ToModel(allTeams)); 
+            catch(Exception e)
+            {
+                return StatusCode(500, e.Message);
+            }
+            
         }
 
-        [HttpGet("{id}", Name = "GetTeamById")]
+        [Route("GetTeamById/{id}")]
+        [HttpGet]
         public IActionResult GetTeamById(Guid id)
         {
-            var team = teamService.GetTeamById(id);
+            var team = TeamService.GetTeamById(id);
             if (team == null) 
             {
                 return NotFound();
             }
             return Ok(TeamModel.ToModel(team));
         }
-
-        [HttpGet("{id}", Name = "GetSportsOfaTeam")]
+        [Route("GetSportsOfaTeam/{id}")]
+        [HttpGet]
         public IActionResult GetSportsOfaTeam(Guid id)
         {
-            IEnumerable<Sport> team = teamService.SportsOfATeam(id);
+            Sport team = TeamService.SportsOfATeam(id);
             if (team == null) 
             {
                 return NotFound();
             }
             return Ok(SportModel.ToModel(team));
         }
-        [HttpGet("{id}", Name = "GetMatchesOfaTeam")]
+        [Route("GetMatchesOfaTeam/{id}")]
+        [HttpGet]
         public IActionResult GetMatchesOfaTeam(Guid id)
         {
-         IEnumerable<Match> team = teamService.MatchesOfaTeam(id);
+         IEnumerable<Match> team = TeamService.MatchesOfaTeam(id);
             if (team == null) 
             {
                 return NotFound();
@@ -61,12 +73,12 @@ namespace MatchesOfSports.WebApi.Controllers
             return Ok(MatchModel.ToModel(team));   
         }
    
-        [ProtectFilter("Admin")]
+       // [ProtectFilter("Admin")]
         [HttpPost]
         public IActionResult CreateTeam([FromBody]Team model)
         {
             try {
-                var team = teamService.Create(model);
+                var team = TeamService.Create(model);
                 return CreatedAtRoute("Get", model);
             } catch(ArgumentException) {
                 return StatusCode(500, "Internal server error");
@@ -79,7 +91,7 @@ namespace MatchesOfSports.WebApi.Controllers
         {
             try
             {
-                if (teamService.UpdateTeam(id, updatedTeam))
+                if (TeamService.UpdateTeam(id, updatedTeam))
                 {
                     //Status No Content -> 204
                     return StatusCode(0xCC);
@@ -101,7 +113,7 @@ namespace MatchesOfSports.WebApi.Controllers
         {
               try
             {
-                if (teamService.DeleteTeamByName(id))
+                if (TeamService.DeleteTeamByName(id))
                 {
                     //Status No Content -> 204
                     return StatusCode(0xCC);;

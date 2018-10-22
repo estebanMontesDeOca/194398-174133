@@ -120,17 +120,11 @@ namespace MatchesOfSports.BusinessLogic.Services
             return matchesBySport;
         }
         public bool IsItCorrectTheSport(Guid guidTeam, Sport sport)
-        {
-            bool isTheSameSport = false;
+        { 
             Team team = unitOfWork.TeamRepository.GetById(guidTeam);
-            foreach(Sport oneSport in team.LisOfSports)
-            {
-                if(IsCorrectTheSpor(oneSport,sport))
-                {
-                    isTheSameSport = true;
-                }
-            } 
-            return isTheSameSport;  
+            Sport teamSport = team.Sport;
+            return IsCorrectTheSpor(teamSport, sport);
+                 
         }
 
         public bool ValidMatch(Match theMatch)
@@ -142,10 +136,10 @@ namespace MatchesOfSports.BusinessLogic.Services
                {
                    isValid = false;
                }
-            }else{
+            }else
+            {
                 isValid = false;
             }
-            
             return isValid;
         }
 
@@ -165,16 +159,20 @@ namespace MatchesOfSports.BusinessLogic.Services
         }
         public bool CreateMatch(Match newMatch)
         {
-            if(newMatch != null){            
-                if(ValidMatch(newMatch)){
+            if(newMatch != null)
+            {            
+                if(ValidMatch(newMatch))
+                {
                     throw new InvalidOperationException("Could not create new match - Match  already exists");
-                }else{
+                }else
+                {
                     unitOfWork.MatchRepository.Insert(newMatch);
                     unitOfWork.Save();
                     return true;
                 }
-            }else{
-                    throw new InvalidOperationException("Could not create new match - Match  is null");
+            }else
+            {
+                throw new InvalidOperationException("Could not create new match - Match  is null");
             }    
 
         }

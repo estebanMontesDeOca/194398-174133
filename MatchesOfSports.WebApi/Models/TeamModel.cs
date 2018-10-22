@@ -9,6 +9,7 @@ namespace MatchesOfSports.WebApi.Models
     {
         public Guid TeamId { get; set; }
         public string Name { get; set; }
+        public Sport Sport { get; set; }
         public string PhotoUrl { get; set; }
 
         public TeamModel(){}
@@ -22,6 +23,7 @@ namespace MatchesOfSports.WebApi.Models
         {
             TeamId = this.TeamId,
             Name = this.Name,
+            Sport = this.Sport,
             PhotoUrl = this.PhotoUrl,
         };
 
@@ -29,6 +31,7 @@ namespace MatchesOfSports.WebApi.Models
         {
             TeamId = entity.TeamId;
             Name = entity.Name;
+            Sport = entity.Sport;
             PhotoUrl = entity.PhotoUrl;
             return this;
         }

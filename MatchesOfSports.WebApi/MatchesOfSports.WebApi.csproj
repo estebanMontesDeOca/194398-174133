@@ -16,12 +16,13 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="2.1.4" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="2.1.4" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.1.4" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="3.0.0" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\MatchesOfSports.DataAccess.Interface\MatchesOfSports.DataAccess.Interface.csproj" />
     <ProjectReference Include="..\MatchesOfSports.Domain\MatchesOfSports.Domain.csproj" />
     <ProjectReference Include="..\MatchesOfSports.BusinessLogic\MatchesOfSports.BusinessLogic.csproj" />
-    <ProjectReference Include="..\MatchesOfSports.BusinessLogic.Interface\MatchesOfSports.BusinessLogic.Interface.csproj" />
     <ProjectReference Include="..\MatchesOfSports.DataAccess\MatchesOfSports.DataAccess.csproj" />   
   </ItemGroup>
 

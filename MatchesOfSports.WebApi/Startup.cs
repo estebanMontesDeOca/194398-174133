@@ -14,6 +14,8 @@ using Microsoft.Extensions.Options;
 using MatchesOfSports.BusinessLogic.Services;
 using MatchesOfSports.DataAccess;
 using MatchesOfSports.Domain;
+using Swashbuckle.AspNetCore.Swagger;
+using MatchesOfSports.DataAccess.Interface;
 
 namespace MatchesOfSports.WebApi
 {
@@ -29,20 +31,30 @@ namespace MatchesOfSports.WebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         { 
-            services.AddMvc();
-        
-            services.AddDbContext<DbContext, MatchesOfSportsContext>(o => o.UseSqlServer(Configuration.GetConnectionString("MatchesOfSportsDB")));
+            
+            /*services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new Info { Title = "MatchesOfSportsAPI", Version = "v1" });
+                c.AddSecurityDefinition("Bearer", new ApiKeyScheme { In = "header", Description = "User token", Name = "Authorization", Type = "apiKey" });
+                c.AddSecurityRequirement(new Dictionary<string, IEnumerable<string>> {
+                { "Bearer", Enumerable.Empty<string>() },
+                });
+                            });*/
+            services.AddDbContext<MatchesOfSportsContext>(o => o.UseSqlServer(Configuration.GetConnectionString("MatchesOfSportsDB")));
+            services.AddScoped<UnitOfWork>();
+
             services.AddScoped<IUsersService, UserService>();
             //services.AddScoped<IRepositoryOf<User>, UserRepository>();
             services.AddScoped<IUsersService, UserService>();
             //services.AddScoped<IRepositoryOf<Team>, TeamRepository>();
-            services.AddScoped<ITeamService, TeamService>();
+            services.AddScoped<TeamService>();
             //services.AddScoped<IRepositoryOf<Sport>, SportRepository>();
             services.AddScoped<ISportService, SportService>();
             //services.AddScoped<IRepositoryOf<Match>, MatchRepository>();
             services.AddScoped<IMatchService, MatchService>();
             //services.AddScoped<IRepositoryOf<Comment>, CommentRepository>(); 
             services.AddScoped<ICommentService, CommentService>();
+            services.AddMvc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -59,16 +71,27 @@ namespace MatchesOfSports.WebApi
 
             app.UseHttpsRedirection();
             app.UseMvc();*/
-               if (env.IsDevelopment())
+            if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
-            app.UseMvc(routes => {
+            else
+            {
+                app.UseHsts();
+            }
+            /*app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "MatchesOfSportsAPI V1");
+            });*/
+           // app.UseHttpsRedirection();
+            app.UseMvc();
+    /*        app.UseMvc(routes => {
                 routes.MapRoute(
                     name: "Default",
                     template: "api/{controller}/{id?}"
                 );
-});
+});*/
         }
     }
 }

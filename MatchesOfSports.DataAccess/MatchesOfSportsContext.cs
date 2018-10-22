@@ -26,9 +26,8 @@ namespace MatchesOfSports.DataAccess
             modelBuilder.Entity<Sport>().Property(u => u.SportId).ValueGeneratedOnAdd();
             modelBuilder.Entity<Team>().Property(u => u.TeamId).ValueGeneratedOnAdd();
             modelBuilder.Entity<Comment>().Property(u => u.CommentId).ValueGeneratedOnAdd();
- 
             //modelBuilder.Entity<Match>().Property(m => m.TeamOne).HasColumnName("Local");;
-      
+
         }
         
     }

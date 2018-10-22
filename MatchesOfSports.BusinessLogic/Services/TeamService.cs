@@ -11,21 +11,21 @@ namespace MatchesOfSports.BusinessLogic.Services
 {
     public class TeamService : ITeamService
     {
-        private IUnitOfWork unitOfWork;
+        public UnitOfWork UnitOfWork { get; set; }
 
-        public TeamService(IUnitOfWork unitOfWork)
+        public TeamService(UnitOfWork unitOfWork)
         {
             if (unitOfWork == null)
             {
                 throw new ArgumentNullException();
             }
-            this.unitOfWork = unitOfWork;
+            this.UnitOfWork = unitOfWork;
         }
 
         public IEnumerable<Team> GetAllTeams()
         {
           try{  
-            return unitOfWork.TeamRepository.Get();
+            return UnitOfWork.TeamRepository.Get();
           }catch(ArgumentNullException){
             throw new InvalidOperationException("Could not get all teams - Data Base empty");
           }
@@ -34,7 +34,7 @@ namespace MatchesOfSports.BusinessLogic.Services
         public Team GetTeamById(Guid id)
         {
             try {
-                return unitOfWork.TeamRepository.GetById(id);
+                return UnitOfWork.TeamRepository.GetById(id);
             }catch(ArgumentNullException)
             {
                 throw new InvalidOperationException("Could not get team - Team does not exist");
@@ -56,15 +56,15 @@ namespace MatchesOfSports.BusinessLogic.Services
 
         public bool ExistTeam(Guid id)
         {
-            return unitOfWork.TeamRepository.GetById(id) != null;
+            return UnitOfWork.TeamRepository.GetById(id) != null;
         }
         public bool Create(Team newTeam)
         {
             if (ExistTeam(newTeam.TeamId)){
                 throw new InvalidOperationException("Could not create team - Team already exist"); 
             }else{
-                unitOfWork.TeamRepository.Insert(newTeam);
-                unitOfWork.Save();
+                UnitOfWork.TeamRepository.Insert(newTeam);
+                UnitOfWork.Save();
                 return true;
             }
         }
@@ -75,11 +75,11 @@ namespace MatchesOfSports.BusinessLogic.Services
                 toUpdate.TeamId = updatedTeam.TeamId;
                 toUpdate.Name   = updatedTeam.Name;
                 toUpdate.PhotoUrl = updatedTeam.PhotoUrl;     
-                toUpdate.LisOfSports=updatedTeam.LisOfSports;   
+                toUpdate.Sport=updatedTeam.Sport;   
                 toUpdate.ListOfMatches = updatedTeam.ListOfMatches;
                 toUpdate.WasDeleted = updatedTeam.WasDeleted;
-                unitOfWork.TeamRepository.Update(toUpdate);
-                unitOfWork.Save();
+                UnitOfWork.TeamRepository.Update(toUpdate);
+                UnitOfWork.Save();
                 return true;
             }catch(ArgumentNullException)
             {
@@ -87,15 +87,17 @@ namespace MatchesOfSports.BusinessLogic.Services
             }
         }
 
-        public IEnumerable<Sport> SportsOfATeam(Guid id)
+        public  Sport SportsOfATeam(Guid id)
         {
             try{    
                 Team theTeam = GetTeamById(id);
+                
                 if(!theTeam.WasDeleted){
-                    return theTeam.LisOfSports;
+                    return theTeam.Sport;
                 }else{
                      throw new InvalidOperationException("Could not get the team - Team was deleted"); 
                 }
+
             }catch(ArgumentNullException)
             {
                 throw new InvalidOperationException("Could not get the team - Team does not exist"); 
@@ -105,8 +107,8 @@ namespace MatchesOfSports.BusinessLogic.Services
         public IEnumerable<Match> MatchesOfaTeamBySportId(Guid idSport,Guid idTeam)
         {
              try{    
-                Sport theSport = unitOfWork.SportRepository.GetById(idSport);
-                Team  theTeam = unitOfWork.TeamRepository.GetById(idTeam);
+                Sport theSport = UnitOfWork.SportRepository.GetById(idSport);
+                Team  theTeam = UnitOfWork.TeamRepository.GetById(idTeam);
                 List<Match> listOfMatches = theTeam.ListOfMatches;
                 List<Match> listToReturn  = new List<Match>();
                 if(!theTeam.WasDeleted){
@@ -130,7 +132,7 @@ namespace MatchesOfSports.BusinessLogic.Services
         public IEnumerable<Match> MatchesOfaTeam(Guid id)
         {
              try{    
-                Team  theTeam = unitOfWork.TeamRepository.GetById(id);
+                Team  theTeam = UnitOfWork.TeamRepository.GetById(id);
                 List<Match> listOfMatches = theTeam.ListOfMatches;
                 List<Match> listToReturn  = new List<Match>();
                 if(!theTeam.WasDeleted){

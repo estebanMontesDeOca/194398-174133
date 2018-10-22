@@ -198,29 +198,31 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Usuario\\Desktop\\194398-174133\\MatchesOfSports.DataAccess.Interface\\MatchesOfSports.DataAccess.Interface.csproj",
+      "projectUniqueName": "c:\\Users\\Usuario\\Desktop\\FIXING BUGS\\194398-174133\\MatchesOfSports.DataAccess.Interface\\MatchesOfSports.DataAccess.Interface.csproj",
       "projectName": "MatchesOfSports.DataAccess.Interface",
-      "projectPath": "C:\\Users\\Usuario\\Desktop\\194398-174133\\MatchesOfSports.DataAccess.Interface\\MatchesOfSports.DataAccess.Interface.csproj",
+      "projectPath": "c:\\Users\\Usuario\\Desktop\\FIXING BUGS\\194398-174133\\MatchesOfSports.DataAccess.Interface\\MatchesOfSports.DataAccess.Interface.csproj",
       "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Usuario\\Desktop\\194398-174133\\MatchesOfSports.DataAccess.Interface\\obj\\",
+      "outputPath": "c:\\Users\\Usuario\\Desktop\\FIXING BUGS\\194398-174133\\MatchesOfSports.DataAccess.Interface\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netstandard2.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "netstandard2.0": {
           "projectReferences": {
-            "C:\\Users\\Usuario\\Desktop\\194398-174133\\MatchesOfSports.Domain\\MatchesOfSports.Domain.csproj": {
-              "projectPath": "C:\\Users\\Usuario\\Desktop\\194398-174133\\MatchesOfSports.Domain\\MatchesOfSports.Domain.csproj"
+            "c:\\Users\\Usuario\\Desktop\\FIXING BUGS\\194398-174133\\MatchesOfSports.Domain\\MatchesOfSports.Domain.csproj": {
+              "projectPath": "c:\\Users\\Usuario\\Desktop\\FIXING BUGS\\194398-174133\\MatchesOfSports.Domain\\MatchesOfSports.Domain.csproj"
             }
           }
         }

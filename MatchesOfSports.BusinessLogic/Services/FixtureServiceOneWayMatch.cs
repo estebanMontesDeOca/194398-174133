@@ -33,10 +33,11 @@ namespace MatchesOfSports.BusinessLogic.Services
                 int comparingDates = DateTime.Compare(DateTime.Now, match.DateAndTime); 
                 if(comparingDates < 0)
                 {
+                    /*
                     if(match.TeamTwo.Equals(teamTwo) || match.TeamOne.Equals(teamTwo))
                     {
                         toReturn=false;
-                    }
+                    }*/
                 }
             }
             return toReturn;
@@ -71,8 +72,8 @@ namespace MatchesOfSports.BusinessLogic.Services
                             if(DontHaveMatchOn(date,teamOne) && DontHaveMatchOn(date,teamTwo)){
                                Match theMatch = new Match();
                                theMatch.DateAndTime = date;
-                               theMatch.TeamOne= teamOne.TeamId;
-                               theMatch.TeamTwo= teamTwo.TeamId;
+                               //theMatch.TeamOne= teamOne.TeamId;
+                               //theMatch.TeamTwo= teamTwo.TeamId;
                                theMatch.KindOfSport= sport;
 
                                teamOne.ListOfMatches.Add(theMatch);

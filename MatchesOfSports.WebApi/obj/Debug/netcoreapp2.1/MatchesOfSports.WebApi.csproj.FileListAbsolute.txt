@@ -21,3 +21,26 @@ c:\Users\Usuario\Desktop\194398-174133\MatchesOfSports.WebApi\obj\Debug\netcorea
 c:\Users\Usuario\Desktop\194398-174133\MatchesOfSports.WebApi\obj\Debug\netcoreapp2.1\MatchesOfSports.WebApi.pdb
 C:\Users\Usuario\Desktop\194398-174133\MatchesOfSports.WebApi\bin\Debug\netcoreapp2.1\MatchesOfSports.DataAccess.Interface.dll
 C:\Users\Usuario\Desktop\194398-174133\MatchesOfSports.WebApi\bin\Debug\netcoreapp2.1\MatchesOfSports.DataAccess.Interface.pdb
+C:\Users\Usuario\Desktop\FIXING BUGS\194398-174133\MatchesOfSports.WebApi\bin\Debug\netcoreapp2.1\MatchesOfSports.WebApi.deps.json
+C:\Users\Usuario\Desktop\FIXING BUGS\194398-174133\MatchesOfSports.WebApi\bin\Debug\netcoreapp2.1\MatchesOfSports.WebApi.runtimeconfig.json
+C:\Users\Usuario\Desktop\FIXING BUGS\194398-174133\MatchesOfSports.WebApi\bin\Debug\netcoreapp2.1\MatchesOfSports.WebApi.runtimeconfig.dev.json
+C:\Users\Usuario\Desktop\FIXING BUGS\194398-174133\MatchesOfSports.WebApi\bin\Debug\netcoreapp2.1\MatchesOfSports.WebApi.dll
+C:\Users\Usuario\Desktop\FIXING BUGS\194398-174133\MatchesOfSports.WebApi\bin\Debug\netcoreapp2.1\MatchesOfSports.WebApi.pdb
+C:\Users\Usuario\Desktop\FIXING BUGS\194398-174133\MatchesOfSports.WebApi\bin\Debug\netcoreapp2.1\MatchesOfSports.BusinessLogic.dll
+C:\Users\Usuario\Desktop\FIXING BUGS\194398-174133\MatchesOfSports.WebApi\bin\Debug\netcoreapp2.1\MatchesOfSports.DataAccess.dll
+C:\Users\Usuario\Desktop\FIXING BUGS\194398-174133\MatchesOfSports.WebApi\bin\Debug\netcoreapp2.1\MatchesOfSports.DataAccess.Interface.dll
+C:\Users\Usuario\Desktop\FIXING BUGS\194398-174133\MatchesOfSports.WebApi\bin\Debug\netcoreapp2.1\MatchesOfSports.Domain.dll
+C:\Users\Usuario\Desktop\FIXING BUGS\194398-174133\MatchesOfSports.WebApi\bin\Debug\netcoreapp2.1\MatchesOfSports.Domain.pdb
+C:\Users\Usuario\Desktop\FIXING BUGS\194398-174133\MatchesOfSports.WebApi\bin\Debug\netcoreapp2.1\MatchesOfSports.BusinessLogic.pdb
+C:\Users\Usuario\Desktop\FIXING BUGS\194398-174133\MatchesOfSports.WebApi\bin\Debug\netcoreapp2.1\MatchesOfSports.DataAccess.pdb
+C:\Users\Usuario\Desktop\FIXING BUGS\194398-174133\MatchesOfSports.WebApi\bin\Debug\netcoreapp2.1\MatchesOfSports.DataAccess.Interface.pdb
+C:\Users\Usuario\Desktop\FIXING BUGS\194398-174133\MatchesOfSports.WebApi\obj\Debug\netcoreapp2.1\MatchesOfSports.WebApi.csprojAssemblyReference.cache
+C:\Users\Usuario\Desktop\FIXING BUGS\194398-174133\MatchesOfSports.WebApi\obj\Debug\netcoreapp2.1\MatchesOfSports.WebApi.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\Desktop\FIXING BUGS\194398-174133\MatchesOfSports.WebApi\obj\Debug\netcoreapp2.1\MatchesOfSports.WebApi.RazorAssemblyInfo.cache
+C:\Users\Usuario\Desktop\FIXING BUGS\194398-174133\MatchesOfSports.WebApi\obj\Debug\netcoreapp2.1\MatchesOfSports.WebApi.RazorAssemblyInfo.cs
+C:\Users\Usuario\Desktop\FIXING BUGS\194398-174133\MatchesOfSports.WebApi\obj\Debug\netcoreapp2.1\MatchesOfSports.WebApi.AssemblyInfoInputs.cache
+C:\Users\Usuario\Desktop\FIXING BUGS\194398-174133\MatchesOfSports.WebApi\obj\Debug\netcoreapp2.1\MatchesOfSports.WebApi.AssemblyInfo.cs
+C:\Users\Usuario\Desktop\FIXING BUGS\194398-174133\MatchesOfSports.WebApi\obj\Debug\netcoreapp2.1\MatchesOfSports.WebApi.RazorTargetAssemblyInfo.cache
+C:\Users\Usuario\Desktop\FIXING BUGS\194398-174133\MatchesOfSports.WebApi\obj\Debug\netcoreapp2.1\MatchesOfSports.WebApi.csproj.CopyComplete
+C:\Users\Usuario\Desktop\FIXING BUGS\194398-174133\MatchesOfSports.WebApi\obj\Debug\netcoreapp2.1\MatchesOfSports.WebApi.dll
+C:\Users\Usuario\Desktop\FIXING BUGS\194398-174133\MatchesOfSports.WebApi\obj\Debug\netcoreapp2.1\MatchesOfSports.WebApi.pdb

@@ -15,7 +15,7 @@ namespace MatchesOfSports.DataAccess.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.1.3-rtm-32065")
+                .HasAnnotation("ProductVersion", "2.1.4-rtm-31024")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -76,13 +76,9 @@ namespace MatchesOfSports.DataAccess.Migrations
 
                     b.Property<string>("Name");
 
-                    b.Property<Guid?>("TeamId");
-
                     b.Property<bool>("WasDeleted");
 
                     b.HasKey("SportId");
-
-                    b.HasIndex("TeamId");
 
                     b.ToTable("Sports");
                 });
@@ -96,11 +92,15 @@ namespace MatchesOfSports.DataAccess.Migrations
 
                     b.Property<string>("PhotoUrl");
 
+                    b.Property<Guid?>("SportId");
+
                     b.Property<Guid?>("UserId");
 
                     b.Property<bool>("WasDeleted");
 
                     b.HasKey("TeamId");
+
+                    b.HasIndex("SportId");
 
                     b.HasIndex("UserId");
 
@@ -157,15 +157,12 @@ namespace MatchesOfSports.DataAccess.Migrations
                         .HasForeignKey("TheSportSportId");
                 });
 
-            modelBuilder.Entity("MatchesOfSports.Domain.Sport", b =>
-                {
-                    b.HasOne("MatchesOfSports.Domain.Team")
-                        .WithMany("LisOfSports")
-                        .HasForeignKey("TeamId");
-                });
-
             modelBuilder.Entity("MatchesOfSports.Domain.Team", b =>
                 {
+                    b.HasOne("MatchesOfSports.Domain.Sport", "Sport")
+                        .WithMany("ListOfTeams")
+                        .HasForeignKey("SportId");
+
                     b.HasOne("MatchesOfSports.Domain.User")
                         .WithMany("ListOfFavouriteTeams")
                         .HasForeignKey("UserId");

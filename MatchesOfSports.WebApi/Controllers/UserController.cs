@@ -9,9 +9,10 @@ using MatchesOfSports.WebApi.Filters;
 
 namespace MatchesOfSports.WebApi.Controllers
 {
-    [Route("api/users")]
+    [Route("api/user")]
+    [ApiController]
     //[EnableCors(origins: "*",headers: "*", methods: "*")]
-    public class UsersController : Controller
+    public class UsersController : ControllerBase
     {
         private IUsersService usersService;
 

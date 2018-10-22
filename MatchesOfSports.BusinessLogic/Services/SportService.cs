@@ -12,9 +12,9 @@ namespace MatchesOfSports.BusinessLogic.Services
 {
     public class SportService : ISportService
     {
-        private IUnitOfWork unitOfWork;
+        private UnitOfWork unitOfWork;
 
-        public SportService(IUnitOfWork unitOfWork)
+        public SportService(UnitOfWork unitOfWork)
         {
             if (unitOfWork == null)
             {
@@ -56,12 +56,13 @@ namespace MatchesOfSports.BusinessLogic.Services
 
         public bool ExistSport(Guid id)
         {
-            return unitOfWork.SportRepository.GetById(id)!=null; 
+            bool toReturn = unitOfWork.SportRepository.GetById(id) != null;
+            return toReturn;
         }
         
         public bool CreateSport(Sport newSport)
         {
-            if(ExistSport(newSport.SportId)){
+            if(!ExistSport(newSport.SportId)){
                 throw new InvalidOperationException("Could not create new sport - Sport  already exists");
             }else{
                 unitOfWork.SportRepository.Insert(newSport);
