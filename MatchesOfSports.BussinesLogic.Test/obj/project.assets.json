@@ -7126,11 +7126,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\Usuario\\Desktop\\194398-174133\\MatchesOfSports.BussinesLogic.Test\\MatchesOfSports.BussinesLogic.Test.csproj",
+      "projectUniqueName": "C:\\Users\\Usuario\\Desktop\\194398-174133\\MatchesOfSports.BussinesLogic.Test\\MatchesOfSports.BussinesLogic.Test.csproj",
       "projectName": "MatchesOfSports.BussinesLogic.Test",
-      "projectPath": "c:\\Users\\Usuario\\Desktop\\194398-174133\\MatchesOfSports.BussinesLogic.Test\\MatchesOfSports.BussinesLogic.Test.csproj",
+      "projectPath": "C:\\Users\\Usuario\\Desktop\\194398-174133\\MatchesOfSports.BussinesLogic.Test\\MatchesOfSports.BussinesLogic.Test.csproj",
       "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\Usuario\\Desktop\\194398-174133\\MatchesOfSports.BussinesLogic.Test\\obj\\",
+      "outputPath": "C:\\Users\\Usuario\\Desktop\\194398-174133\\MatchesOfSports.BussinesLogic.Test\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -7149,11 +7149,11 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "c:\\Users\\Usuario\\Desktop\\194398-174133\\MatchesOfSports.BusinessLogic\\MatchesOfSports.BusinessLogic.csproj": {
-              "projectPath": "c:\\Users\\Usuario\\Desktop\\194398-174133\\MatchesOfSports.BusinessLogic\\MatchesOfSports.BusinessLogic.csproj"
+            "C:\\Users\\Usuario\\Desktop\\194398-174133\\MatchesOfSports.BusinessLogic\\MatchesOfSports.BusinessLogic.csproj": {
+              "projectPath": "C:\\Users\\Usuario\\Desktop\\194398-174133\\MatchesOfSports.BusinessLogic\\MatchesOfSports.BusinessLogic.csproj"
             },
-            "c:\\Users\\Usuario\\Desktop\\194398-174133\\MatchesOfSports.Domain\\MatchesOfSports.Domain.csproj": {
-              "projectPath": "c:\\Users\\Usuario\\Desktop\\194398-174133\\MatchesOfSports.Domain\\MatchesOfSports.Domain.csproj"
+            "C:\\Users\\Usuario\\Desktop\\194398-174133\\MatchesOfSports.Domain\\MatchesOfSports.Domain.csproj": {
+              "projectPath": "C:\\Users\\Usuario\\Desktop\\194398-174133\\MatchesOfSports.Domain\\MatchesOfSports.Domain.csproj"
             }
           }
         }
@@ -7180,7 +7180,6 @@
             "version": "[15.8.0, )"
           },
           "Microsoft.NETCore.App": {
-            "suppressParent": "All",
             "target": "Package",
             "version": "[2.1.0, )",
             "autoReferenced": true

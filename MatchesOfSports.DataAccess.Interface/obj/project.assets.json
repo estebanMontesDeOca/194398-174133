@@ -198,11 +198,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\Usuario\\Desktop\\194398-174133\\MatchesOfSports.DataAccess.Interface\\MatchesOfSports.DataAccess.Interface.csproj",
+      "projectUniqueName": "C:\\Users\\Usuario\\Desktop\\194398-174133\\MatchesOfSports.DataAccess.Interface\\MatchesOfSports.DataAccess.Interface.csproj",
       "projectName": "MatchesOfSports.DataAccess.Interface",
-      "projectPath": "c:\\Users\\Usuario\\Desktop\\194398-174133\\MatchesOfSports.DataAccess.Interface\\MatchesOfSports.DataAccess.Interface.csproj",
+      "projectPath": "C:\\Users\\Usuario\\Desktop\\194398-174133\\MatchesOfSports.DataAccess.Interface\\MatchesOfSports.DataAccess.Interface.csproj",
       "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\Usuario\\Desktop\\194398-174133\\MatchesOfSports.DataAccess.Interface\\obj\\",
+      "outputPath": "C:\\Users\\Usuario\\Desktop\\194398-174133\\MatchesOfSports.DataAccess.Interface\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -221,8 +221,8 @@
       "frameworks": {
         "netstandard2.0": {
           "projectReferences": {
-            "c:\\Users\\Usuario\\Desktop\\194398-174133\\MatchesOfSports.Domain\\MatchesOfSports.Domain.csproj": {
-              "projectPath": "c:\\Users\\Usuario\\Desktop\\194398-174133\\MatchesOfSports.Domain\\MatchesOfSports.Domain.csproj"
+            "C:\\Users\\Usuario\\Desktop\\194398-174133\\MatchesOfSports.Domain\\MatchesOfSports.Domain.csproj": {
+              "projectPath": "C:\\Users\\Usuario\\Desktop\\194398-174133\\MatchesOfSports.Domain\\MatchesOfSports.Domain.csproj"
             }
           }
         }
