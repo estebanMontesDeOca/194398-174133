@@ -182,11 +182,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Usuario\\Desktop\\FIXING BUGS\\194398-174133\\MatchesOfSports.Domain\\MatchesOfSports.Domain.csproj",
+      "projectUniqueName": "c:\\Users\\Usuario\\Desktop\\194398-174133\\MatchesOfSports.Domain\\MatchesOfSports.Domain.csproj",
       "projectName": "MatchesOfSports.Domain",
-      "projectPath": "C:\\Users\\Usuario\\Desktop\\FIXING BUGS\\194398-174133\\MatchesOfSports.Domain\\MatchesOfSports.Domain.csproj",
+      "projectPath": "c:\\Users\\Usuario\\Desktop\\194398-174133\\MatchesOfSports.Domain\\MatchesOfSports.Domain.csproj",
       "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Usuario\\Desktop\\FIXING BUGS\\194398-174133\\MatchesOfSports.Domain\\obj\\",
+      "outputPath": "c:\\Users\\Usuario\\Desktop\\194398-174133\\MatchesOfSports.Domain\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

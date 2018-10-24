@@ -1,0 +1,16 @@
+C:\Users\Usuario\Desktop\194398-174133\MatchesOfSports.BusinessLogic\bin\Release\netstandard2.0\MatchesOfSports.BusinessLogic.deps.json
+C:\Users\Usuario\Desktop\194398-174133\MatchesOfSports.BusinessLogic\bin\Release\netstandard2.0\MatchesOfSports.BusinessLogic.dll
+C:\Users\Usuario\Desktop\194398-174133\MatchesOfSports.BusinessLogic\bin\Release\netstandard2.0\MatchesOfSports.BusinessLogic.pdb
+C:\Users\Usuario\Desktop\194398-174133\MatchesOfSports.BusinessLogic\bin\Release\netstandard2.0\MatchesOfSports.DataAccess.dll
+C:\Users\Usuario\Desktop\194398-174133\MatchesOfSports.BusinessLogic\bin\Release\netstandard2.0\MatchesOfSports.DataAccess.Interface.dll
+C:\Users\Usuario\Desktop\194398-174133\MatchesOfSports.BusinessLogic\bin\Release\netstandard2.0\MatchesOfSports.Domain.dll
+C:\Users\Usuario\Desktop\194398-174133\MatchesOfSports.BusinessLogic\bin\Release\netstandard2.0\MatchesOfSports.DataAccess.Interface.pdb
+C:\Users\Usuario\Desktop\194398-174133\MatchesOfSports.BusinessLogic\bin\Release\netstandard2.0\MatchesOfSports.DataAccess.pdb
+C:\Users\Usuario\Desktop\194398-174133\MatchesOfSports.BusinessLogic\bin\Release\netstandard2.0\MatchesOfSports.Domain.pdb
+C:\Users\Usuario\Desktop\194398-174133\MatchesOfSports.BusinessLogic\obj\Release\netstandard2.0\MatchesOfSports.BusinessLogic.csprojAssemblyReference.cache
+C:\Users\Usuario\Desktop\194398-174133\MatchesOfSports.BusinessLogic\obj\Release\netstandard2.0\MatchesOfSports.BusinessLogic.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\Desktop\194398-174133\MatchesOfSports.BusinessLogic\obj\Release\netstandard2.0\MatchesOfSports.BusinessLogic.AssemblyInfoInputs.cache
+C:\Users\Usuario\Desktop\194398-174133\MatchesOfSports.BusinessLogic\obj\Release\netstandard2.0\MatchesOfSports.BusinessLogic.AssemblyInfo.cs
+C:\Users\Usuario\Desktop\194398-174133\MatchesOfSports.BusinessLogic\obj\Release\netstandard2.0\MatchesOfSports.BusinessLogic.csproj.CopyComplete
+C:\Users\Usuario\Desktop\194398-174133\MatchesOfSports.BusinessLogic\obj\Release\netstandard2.0\MatchesOfSports.BusinessLogic.dll
+C:\Users\Usuario\Desktop\194398-174133\MatchesOfSports.BusinessLogic\obj\Release\netstandard2.0\MatchesOfSports.BusinessLogic.pdb
